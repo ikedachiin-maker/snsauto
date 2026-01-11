@@ -7,11 +7,45 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-699%20passing-brightgreen)](https://github.com/taiyousan15/taisun_agent/actions)
+[![Tests](https://img.shields.io/badge/Tests-712%20passing-brightgreen)](https://github.com/taiyousan15/taisun_agent/actions)
 
 ---
 
 ## アップデートのお知らせ
+
+> **2026-01-12: Workflow Guardian Phase 2 - AIの暴走を防ぐ厳格モード 🛡️**
+>
+> AIが勝手にワークフローのフェーズをスキップしたり、危険な操作を実行するのを**完全に防止**する
+> Workflow Guardian Phase 2を実装しました。
+>
+> ### 主要機能
+> - **Strict Mode**: `--strict`フラグで厳格な強制モードを有効化
+> - **Skill Guard**: 許可されていないスキルの実行を自動ブロック
+> - **Hooks System**: 危険なBashコマンド・ファイル操作を事前防止
+> - **状態管理**: セッション跨ぎでワークフロー進捗を永続化
+>
+> ### セキュリティ保護
+> **ブロック対象**:
+> - `rm -rf`, `git push --force`, `DROP TABLE`等の危険コマンド
+> - `.env`, `secrets/`, `.git/`等の重要ファイル編集
+> - 現在フェーズで許可されていないスキル実行
+>
+> ### 2つのモード
+> ```bash
+> # Phase 1 (デフォルト): Advisory - 警告のみ
+> npm run workflow:start -- video_generation_v1
+>
+> # Phase 2: Strict - 完全強制
+> npm run workflow:start -- video_generation_v1 --strict
+> ```
+>
+> ### ドキュメント
+> - [docs/WORKFLOW_STATE_MANAGEMENT.md](docs/WORKFLOW_STATE_MANAGEMENT.md) - 完全ガイド
+> - [docs/WORKFLOW_PHASE2_DESIGN.md](docs/WORKFLOW_PHASE2_DESIGN.md) - 設計書
+>
+> **推奨**: 本番環境・重要なワークフローではstrict modeを使用してください。
+
+---
 
 > **2026-01-11: OpenCode/OMO統合 - 任意で使えるセカンドエンジン 🤖**
 >
