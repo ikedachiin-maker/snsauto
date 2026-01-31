@@ -496,7 +496,7 @@ claude  # Claude Code を起動
 
 ```
 あなた: 「セールスレターを書いて」
-Claude: /sales-letter スキルで作成します...
+Claude: /taiyo-style-sales-letter スキルで作成します...
 
 あなた: 「このコードをレビューして」
 Claude: code-reviewer エージェントで分析します...
@@ -547,7 +547,7 @@ TAISUN v2は、Claude Codeと連携し、設計から実装、テスト、デプ
 | Component | Count | Description |
 |-----------|-------|-------------|
 | **AI Agents** | 82 | 専門家エージェント (AIT42 + Miyabi + Diagnostics) |
-| **Skills** | 83 | マーケティング・インフラ自動化スキル |
+| **Skills** | 66 | マーケティング・インフラ自動化スキル |
 | **Hooks** | 21 | 13層防御システム（21ファイル） |
 | **Commands** | 84 | ショートカットコマンド（OpenCode統合含む） |
 | **MCP Servers** | 36 | 外部サービス連携 |
@@ -595,26 +595,25 @@ memory_search   // コンテンツ検索
 
 ### 4. Skill Library (82 Skills)
 
-#### Marketing & Sales (15)
+#### Marketing & Sales (12)
 - `copywriting-helper` - コピーライティング支援
-- `sales-letter` - セールスレター作成
-- `step-mail` - ステップメール作成
-- `vsl` - ビデオセールスレター
+- `taiyo-style-sales-letter` - セールスレター作成（太陽スタイル）
+- `taiyo-style-step-mail` - ステップメール作成（太陽スタイル）
+- `taiyo-style-vsl` - ビデオセールスレター（太陽スタイル）
 - `launch-video` - ローンチ動画スクリプト
-- `lp-generator` / `lp-analysis` / `mendan-lp` - LP作成・分析
+- `lp-analysis` / `mendan-lp` - LP分析・面談LP
 - `funnel-builder` - ファネル構築
-- `customer-support` - カスタマーサポート
+- `customer-support-120` - カスタマーサポート（120%対応）
 - `taiyo-style` - 太陽スタイル適用
 
 #### Content Creation (10)
 - `kindle-publishing` - Kindle本出版
 - `youtube-content` / `youtube-thumbnail` - YouTube企画・サムネイル
-- `manga-production` / `anime-production` - 漫画・アニメ制作
+- `ai-manga-generator` / `anime-production` - AI漫画・アニメ制作
 - `diagram-illustration` - 図解作成
 - `sns-marketing` - SNSマーケティング
 
-#### AI Image & Video (5)
-- `gemini-image-generator` - Gemini画像生成
+#### AI Image & Video (4)
 - `nanobanana-pro` / `nanobanana-prompts` - NanoBanana統合
 - `omnihuman1-video` - AIアバター動画
 - `japanese-tts-reading` - 日本語TTS
@@ -717,27 +716,24 @@ VS Code連携による開発支援。
 
 ---
 
-## スキル完全リファレンス（83スキル）
+## スキル完全リファレンス（66スキル）
 
-### マーケティング・セールス（15スキル）
+### マーケティング・セールス（12スキル）
 
 | スキル | 説明 | コマンド |
 |-------|------|---------|
 | `copywriting-helper` | コピーライティング支援、訴求力のある文章作成 | `/copywriting-helper` |
-| `sales-letter` | セールスレター作成（構成・心理トリガー・CTA） | `/sales-letter` |
-| `step-mail` | ステップメール作成（6つの教育要素対応） | `/step-mail` |
-| `vsl` | ビデオセールスレター台本（15章構成） | `/vsl` |
 | `launch-video` | ローンチ動画スクリプト（3話/4話構成） | `/launch-video` |
-| `lp-generator` | ランディングページ作成 | `/lp-generator` |
 | `lp-design` | LP設計・ワイヤーフレーム | `/lp-design` |
 | `lp-analysis` | LP分析・改善提案（成約率4.3倍達成） | `/lp-analysis` |
 | `mendan-lp` | 面談LP作成（申込率50%目標、4つの型対応） | `/mendan-lp` |
 | `funnel-builder` | セールスファネル構築 | `/funnel-builder` |
-| `customer-support` | カスタマーサポート返信（6つの教育要素） | `/customer-support` |
 | `customer-support-120` | 顧客期待120%超え対応 | `/customer-support-120` |
 | `education-framework` | 6つの教育要素フレームワーク | `/education-framework` |
 | `line-marketing` | LINEマーケティング戦略 | `/line-marketing` |
 | `sales-systems` | セールスシステム構築 | `/sales-systems` |
+| `lp-json-generator` | LP画像のテキスト差し替え生成 | `/lp-json-generator` |
+| `taiyo-analyzer` | 太陽スタイル176パターン品質分析 | `/taiyo-analyzer` |
 
 ### 太陽スタイル（10スキル）
 
@@ -763,9 +759,9 @@ VS Code連携による開発支援。
 | `note-marketing` | note記事戦略 | `/note-marketing` |
 | `youtube-content` | YouTube動画企画 | `/youtube-content` |
 | `youtube-thumbnail` | サムネイル作成（CTR最適化） | `/youtube-thumbnail` |
-| `manga-production` | 漫画制作（マーケティング漫画） | `/manga-production` |
+| `youtube_channel_summary` | YouTubeチャンネル分析・まとめ | `/youtube_channel_summary` |
+| `ai-manga-generator` | AI漫画制作（マーケティング漫画） | `/ai-manga-generator` |
 | `anime-production` | アニメ制作 | `/anime-production` |
-| `video-production` | 動画制作 | `/video-production` |
 | `diagram-illustration` | 図解・解説画像作成 | `/diagram-illustration` |
 | `custom-character` | キャラクター設定 | `/custom-character` |
 | `sns-marketing` | SNSマーケティング（マルチプラットフォーム） | `/sns-marketing` |
@@ -774,30 +770,21 @@ VS Code連携による開発支援。
 
 | スキル | 説明 | コマンド |
 |-------|------|---------|
-| `gemini-image-generator` | Google Gemini画像生成（ブラウザ自動化） | `/gemini-image-generator` |
 | `nanobanana-pro` | NanoBanana Pro画像生成（参照画像対応） | `/nanobanana-pro` |
 | `nanobanana-prompts` | NanoBanana向けプロンプト最適化 | `/nanobanana-prompts` |
 | `omnihuman1-video` | OmniHuman1 AIアバター動画作成 | `/omnihuman1-video` |
 | `japanese-tts-reading` | 日本語TTS（Whisper対応） | `/japanese-tts-reading` |
+| `gpt-sovits-tts` | GPT-SoVITS音声合成 | `/gpt-sovits-tts` |
 
-### Video Agentシステム（12スキル）
+### Video Agent統合スキル（1スキル）
 
-動画制作・管理の自動化システム。
+動画制作・管理の自動化システム。12個の個別スキルを1つに統合。
 
 | スキル | 説明 | コマンド |
 |-------|------|---------|
-| `video-policy` | ポリシー管理 | `/video-policy` |
-| `video-eval` | 動画評価システム | `/video-eval` |
-| `video-ci-scheduling` | CI/CDスケジューリング | `/video-ci-scheduling` |
-| `video-metrics` | メトリクス収集 | `/video-metrics` |
-| `video-notify` | 通知システム | `/video-notify` |
-| `video-anomaly` | 異常検知 | `/video-anomaly` |
-| `video-dispatch` | タスクディスパッチ | `/video-dispatch` |
-| `video-validate` | バリデーション | `/video-validate` |
-| `video-guard` | ガード機能 | `/video-guard` |
-| `video-agent-runbooks` | 運用ガイド・Runbook | `/video-agent-runbooks` |
-| `video-download` | 動画ダウンロード（YouTube等） | `/video-download` |
-| `video-transcribe` | 文字起こし（ローカルWhisper/OpenAI API） | `/video-transcribe` |
+| `video-agent` | 動画パイプライン統合（ダウンロード、文字起こし、制作、品質管理、CI/CD、通知） | `/video-agent` |
+
+**統合された機能**: video-download, video-transcribe, video-production, video-policy, video-eval, video-ci-scheduling, video-metrics, video-notify, video-anomaly, video-dispatch, video-validate, video-guard
 
 ### Deep Research & 要件定義（6スキル）🆕
 
