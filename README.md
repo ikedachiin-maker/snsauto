@@ -488,43 +488,24 @@
 
 ### 📦 Step 1: 新規インストール（初回のみ・5分）
 
-#### 方法A: Claude Codeのチャットで指示（⭐ 最も簡単）
-
-Claude Codeを起動して、以下をチャットに貼り付けるだけ：
+Claude Codeのチャットに**以下を丸ごとコピペ**してください：
 
 ```
-ホームディレクトリに taisun_agent をインストールして
-https://github.com/taiyousan15/taisun_agent.git
-```
-
-#### 方法B: ターミナルでコマンド実行
-
-**Mac / Linux：**
-```bash
+以下のコマンドを実行して：
 cd ~ && git clone https://github.com/taiyousan15/taisun_agent.git && cd taisun_agent && npm install && npm run build:all && npm run perf:fast && npm run taisun:diagnose
 ```
 
-**Windows：**
-```powershell
-cd $HOME; git clone https://github.com/taiyousan15/taisun_agent.git; cd taisun_agent; npm run setup:windows; npm install; npm run build:all; npm run perf:fast; npm run taisun:diagnose
-```
-
 > **⚠️ 「already exists」エラーが出た場合：**
-> 既にtaisun_agentがあります。Step 2（アップデート）を実行してください。
+> 既にインストール済みです。Step 2（アップデート）を実行してください。
 
 ---
 
 ### 🔄 Step 2: アップデート（最新版にする）
 
-#### 方法A: Claude Codeのチャットで指示（⭐ 最も簡単）
+Claude Codeのチャットに**以下を丸ごとコピペ**してください：
 
 ```
-taisun_agent を最新版にアップデートして
-```
-
-#### 方法B: ターミナルでコマンド実行
-
-```bash
+以下のコマンドを実行して：
 cd ~/taisun_agent && git pull origin main && npm install && npm run build:all && npm run taisun:diagnose
 ```
 
@@ -532,41 +513,25 @@ cd ~/taisun_agent && git pull origin main && npm install && npm run build:all &&
 
 ### 📁 Step 3: 他のプロジェクトで使う
 
-#### 方法A: Claude Codeのチャットで指示（⭐ 最も簡単）
-
-使いたいプロジェクトフォルダでClaude Codeを起動して：
+使いたいプロジェクトフォルダでClaude Codeを起動して、**以下を丸ごとコピペ**してください：
 
 ```
-このフォルダで taisun_agent を使えるようにして
-```
-
-#### 方法B: ターミナルでコマンド実行
-
-**今いるフォルダで使いたい場合：**
-```bash
+以下のコマンドを実行して：
 ln -s ~/taisun_agent/.claude .claude && echo "✅ 完了！"
 ```
 
-**特定のフォルダで使いたい場合（フォルダ名を変更してコピペ）：**
-```bash
-cd ~/Desktop/my-project && ln -s ~/taisun_agent/.claude .claude && echo "✅ 完了！"
-```
-
-**新しいフォルダを作って使いたい場合（フォルダ名を変更してコピペ）：**
-```bash
-mkdir -p ~/Desktop/新プロジェクト && cd ~/Desktop/新プロジェクト && ln -s ~/taisun_agent/.claude .claude && echo "✅ 完了！"
-```
+これで68スキル・85エージェントが使えるようになります。
 
 ---
 
-### 📋 早見表
+### 📋 早見表（Claude Codeにコピペ用）
 
-| やりたいこと | Claude Codeに言う | またはコマンド |
-|-------------|------------------|---------------|
-| **インストール** | 「taisun_agentをインストールして」 | `cd ~ && git clone https://github.com/taiyousan15/taisun_agent.git && cd taisun_agent && npm install && npm run build:all` |
-| **アップデート** | 「taisun_agentを最新版にして」 | `cd ~/taisun_agent && git pull origin main && npm install && npm run build:all` |
-| **このフォルダで使う** | 「このフォルダでtaisun_agentを使えるようにして」 | `ln -s ~/taisun_agent/.claude .claude` |
-| **診断** | 「taisun_agentの診断して」 | `cd ~/taisun_agent && npm run taisun:diagnose` |
+| やりたいこと | Claude Codeに貼り付ける文 |
+|-------------|--------------------------|
+| **インストール** | `以下のコマンドを実行して： cd ~ && git clone https://github.com/taiyousan15/taisun_agent.git && cd taisun_agent && npm install && npm run build:all` |
+| **アップデート** | `以下のコマンドを実行して： cd ~/taisun_agent && git pull origin main && npm install && npm run build:all` |
+| **このフォルダで使う** | `以下のコマンドを実行して： ln -s ~/taisun_agent/.claude .claude` |
+| **診断** | `以下のコマンドを実行して： cd ~/taisun_agent && npm run taisun:diagnose` |
 
 ---
 
