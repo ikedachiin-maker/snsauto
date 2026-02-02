@@ -1,6 +1,6 @@
 # Tmuxモニター スキル
 
-miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです。
+taiyou-mcp-bundleのTmux管理ツール（10個）を活用するスキルです。
 
 ## 使用方法
 
@@ -16,16 +16,16 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__tmux_sessions` | セッション一覧を取得 |
-| `mcp__miyabi-mcp__tmux_windows` | ウィンドウ一覧を取得 |
-| `mcp__miyabi-mcp__tmux_panes` | ペイン一覧を取得 |
-| `mcp__miyabi-mcp__tmux_session_info` | セッション詳細情報 |
-| `mcp__miyabi-mcp__tmux_capture` | ペイン内容をキャプチャ |
-| `mcp__miyabi-mcp__tmux_history` | コマンド履歴を取得 |
-| `mcp__miyabi-mcp__tmux_search` | ペイン内検索 |
-| `mcp__miyabi-mcp__tmux_env` | 環境変数を取得 |
-| `mcp__miyabi-mcp__tmux_layout` | レイアウト情報を取得 |
-| `mcp__miyabi-mcp__tmux_clients` | 接続クライアント一覧 |
+| `mcp__taiyou-mcp__tmux_sessions` | セッション一覧を取得 |
+| `mcp__taiyou-mcp__tmux_windows` | ウィンドウ一覧を取得 |
+| `mcp__taiyou-mcp__tmux_panes` | ペイン一覧を取得 |
+| `mcp__taiyou-mcp__tmux_session_info` | セッション詳細情報 |
+| `mcp__taiyou-mcp__tmux_capture` | ペイン内容をキャプチャ |
+| `mcp__taiyou-mcp__tmux_history` | コマンド履歴を取得 |
+| `mcp__taiyou-mcp__tmux_search` | ペイン内検索 |
+| `mcp__taiyou-mcp__tmux_env` | 環境変数を取得 |
+| `mcp__taiyou-mcp__tmux_layout` | レイアウト情報を取得 |
+| `mcp__taiyou-mcp__tmux_clients` | 接続クライアント一覧 |
 
 ---
 
@@ -37,7 +37,7 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「tmuxセッションを一覧表示して」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_sessions
+- mcp__taiyou-mcp__tmux_sessions
 
 出力例:
 【Tmuxセッション一覧】
@@ -59,8 +59,8 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「devセッションの詳細を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_session_info
-- mcp__miyabi-mcp__tmux_windows
+- mcp__taiyou-mcp__tmux_session_info
+- mcp__taiyou-mcp__tmux_windows
 
 パラメータ:
 - session: "dev"
@@ -83,7 +83,7 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「現在のペインの出力を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_capture
+- mcp__taiyou-mcp__tmux_capture
 
 パラメータ:
 - session: "dev"
@@ -112,7 +112,7 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「errorを含む出力を検索して」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_search
+- mcp__taiyou-mcp__tmux_search
 
 パラメータ:
 - pattern: "error"
@@ -133,9 +133,9 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「全ウィンドウとペインの構成を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_windows
-- mcp__miyabi-mcp__tmux_panes
-- mcp__miyabi-mcp__tmux_layout
+- mcp__taiyou-mcp__tmux_windows
+- mcp__taiyou-mcp__tmux_panes
+- mcp__taiyou-mcp__tmux_layout
 
 出力例:
 【Tmux構成: dev】
@@ -158,7 +158,7 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「最近のコマンド履歴を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_history
+- mcp__taiyou-mcp__tmux_history
 
 パラメータ:
 - session: "dev"
@@ -180,7 +180,7 @@ miyabi-mcp-bundleのTmux管理ツール（10個）を活用するスキルです
 「接続中のクライアントを確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__tmux_clients
+- mcp__taiyou-mcp__tmux_clients
 
 出力例:
 【接続クライアント】

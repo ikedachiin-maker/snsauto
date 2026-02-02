@@ -6,7 +6,7 @@
 - 目次・章立て作成
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/kindle/ (10章構成テンプレート)
+- taiyou-taiyo/content/kindle/ (10章構成テンプレート)
 
 ## 構成
 1. 概要（アウトライン）

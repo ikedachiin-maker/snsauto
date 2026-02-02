@@ -1,6 +1,6 @@
 # Git インスペクター スキル
 
-miyabi-mcp-bundleのGitインスペクターツール（15個）を活用するスキルです。
+taiyou-mcp-bundleのGitインスペクターツール（15個）を活用するスキルです。
 
 ## 使用方法
 
@@ -14,19 +14,19 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__git_status` | リポジトリの現在の状態を取得 |
-| `mcp__miyabi-mcp__git_branch` | 現在のブランチ情報を取得 |
-| `mcp__miyabi-mcp__git_branches` | 全ブランチ一覧を取得 |
-| `mcp__miyabi-mcp__git_log` | コミット履歴を取得 |
-| `mcp__miyabi-mcp__git_commit_details` | 特定コミットの詳細を取得 |
-| `mcp__miyabi-mcp__git_diff` | 変更差分を表示 |
-| `mcp__miyabi-mcp__git_blame` | ファイルのブレーム情報を取得 |
-| `mcp__miyabi-mcp__git_file_history` | ファイルの変更履歴を取得 |
-| `mcp__miyabi-mcp__git_tags` | タグ一覧を取得 |
-| `mcp__miyabi-mcp__git_contributors` | 貢献者統計を取得 |
-| `mcp__miyabi-mcp__git_stash_list` | スタッシュ一覧を取得 |
-| `mcp__miyabi-mcp__git_remote` | リモート情報を取得 |
-| `mcp__miyabi-mcp__git_config` | Git設定を取得 |
+| `mcp__taiyou-mcp__git_status` | リポジトリの現在の状態を取得 |
+| `mcp__taiyou-mcp__git_branch` | 現在のブランチ情報を取得 |
+| `mcp__taiyou-mcp__git_branches` | 全ブランチ一覧を取得 |
+| `mcp__taiyou-mcp__git_log` | コミット履歴を取得 |
+| `mcp__taiyou-mcp__git_commit_details` | 特定コミットの詳細を取得 |
+| `mcp__taiyou-mcp__git_diff` | 変更差分を表示 |
+| `mcp__taiyou-mcp__git_blame` | ファイルのブレーム情報を取得 |
+| `mcp__taiyou-mcp__git_file_history` | ファイルの変更履歴を取得 |
+| `mcp__taiyou-mcp__git_tags` | タグ一覧を取得 |
+| `mcp__taiyou-mcp__git_contributors` | 貢献者統計を取得 |
+| `mcp__taiyou-mcp__git_stash_list` | スタッシュ一覧を取得 |
+| `mcp__taiyou-mcp__git_remote` | リモート情報を取得 |
+| `mcp__taiyou-mcp__git_config` | Git設定を取得 |
 
 ---
 
@@ -38,8 +38,8 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「現在のリポジトリの状態を確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__git_status
-- mcp__miyabi-mcp__git_branch
+- mcp__taiyou-mcp__git_status
+- mcp__taiyou-mcp__git_branch
 
 出力例:
 - 現在のブランチ
@@ -54,7 +54,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「最近のコミット履歴を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__git_log
+- mcp__taiyou-mcp__git_log
 
 パラメータ:
 - limit: 表示件数（デフォルト: 10）
@@ -73,7 +73,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「このコミットの詳細を見せて: abc1234」
 
 使用ツール:
-- mcp__miyabi-mcp__git_commit_details
+- mcp__taiyou-mcp__git_commit_details
 
 パラメータ:
 - commit_hash: コミットハッシュ
@@ -90,8 +90,8 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「src/index.tsの変更履歴を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__git_file_history
-- mcp__miyabi-mcp__git_blame
+- mcp__taiyou-mcp__git_file_history
+- mcp__taiyou-mcp__git_blame
 
 パラメータ:
 - file_path: ファイルパス
@@ -108,7 +108,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「全ブランチを一覧表示して」
 
 使用ツール:
-- mcp__miyabi-mcp__git_branches
+- mcp__taiyou-mcp__git_branches
 
 出力例:
 - ローカルブランチ
@@ -122,7 +122,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「mainブランチとの差分を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__git_diff
+- mcp__taiyou-mcp__git_diff
 
 パラメータ:
 - target: 比較対象（ブランチ/コミット）
@@ -139,7 +139,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「このリポジトリの貢献者統計を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__git_contributors
+- mcp__taiyou-mcp__git_contributors
 
 出力例:
 - 貢献者名
@@ -154,7 +154,7 @@ miyabi-mcp-bundleのGitインスペクターツール（15個）を活用する�
 「リリースタグ一覧を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__git_tags
+- mcp__taiyou-mcp__git_tags
 
 出力例:
 - タグ名

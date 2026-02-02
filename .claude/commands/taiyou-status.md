@@ -1,29 +1,29 @@
 ---
-description: Miyabiプロジェクトステータス確認
+description: Taiyouプロジェクトステータス確認
 ---
 
-# Miyabiプロジェクトステータス
+# Taiyouプロジェクトステータス
 
-プロジェクトのMiyabi統合状態、GitHub Issues、Actionsの状態を確認します。
+プロジェクトのTaiyou統合状態、GitHub Issues、Actionsの状態を確認します。
 
 ## MCPツール
 
-### `miyabi__get_status`
-プロジェクトのMiyabi/Claude Code統合状態を取得（軽量・高速）
+### `taiyou__get_status`
+プロジェクトのTaiyou/Claude Code統合状態を取得（軽量・高速）
 
 **使用例**:
 ```
 プロジェクト状態確認:
-miyabi__get_status({})
+taiyou__get_status({})
 ```
 
 **返却情報**:
 - 作業ディレクトリ
-- Miyabi統合状態（.miyabi.yml存在確認）
+- Taiyou統合状態（.taiyou.yml存在確認）
 - Claude Code統合状態（.claude/存在確認）
 - パッケージ情報（name, version, 依存関係数）
 
-### `miyabi__status`
+### `taiyou__status`
 詳細なプロジェクトステータス（GitHub API経由）
 
 **パラメータ**:
@@ -32,10 +32,10 @@ miyabi__get_status({})
 **使用例**:
 ```
 詳細ステータス:
-miyabi__status({})
+taiyou__status({})
 
 ウォッチモード:
-miyabi__status({ watch: true })
+taiyou__status({ watch: true })
 ```
 
 **返却情報**:
@@ -49,20 +49,20 @@ miyabi__status({ watch: true })
 
 ```bash
 # 軽量ステータス
-npx miyabi status
+npx taiyou status
 
 # ウォッチモード（5秒ごと自動更新）
-npx miyabi status --watch
+npx taiyou status --watch
 ```
 
 ## 表示例
 
 ```
-📊 Miyabiプロジェクトステータス
+📊 Taiyouプロジェクトステータス
 
 プロジェクト: my-awesome-app
 Repository: github.com/user/my-awesome-app
-Miyabi Version: 0.6.0
+Taiyou Version: 0.6.0
 
 GitHub Issues:
   📋 Open: 5
@@ -95,4 +95,4 @@ Agents:
 
 ---
 
-💡 **ヒント**: `miyabi__get_status` は軽量で高速。`miyabi__status` は詳細情報取得（GitHub API使用）。
+💡 **ヒント**: `taiyou__get_status` は軽量で高速。`taiyou__status` は詳細情報取得（GitHub API使用）。

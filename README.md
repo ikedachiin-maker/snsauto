@@ -977,7 +977,7 @@ TAISUN v2は、Claude Codeと連携し、設計から実装、テスト、デプ
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| **AI Agents** | 82 | 専門家エージェント (AIT42 + Miyabi + Diagnostics) |
+| **AI Agents** | 82 | 専門家エージェント (AIT42 + Taiyou + Diagnostics) |
 | **Skills** | 66 | マーケティング・インフラ自動化スキル |
 | **Hooks** | 21 | 13層防御システム（21ファイル） |
 | **Commands** | 84 | ショートカットコマンド（OpenCode統合含む） |
@@ -1022,7 +1022,7 @@ memory_search   // コンテンツ検索
 | **Specialized** | 5 | bug-fixer, refactor-specialist, feature-builder |
 | **Multi-Agent** | 4 | competition, debate, ensemble, reflection |
 | **Process** | 5 | workflow-coordinator, requirements-elicitation |
-| **Miyabi** | 6 | miyabi-codegen-agent, miyabi-pr-agent |
+| **Taiyou** | 6 | taiyou-codegen-agent, taiyou-pr-agent |
 
 ### 4. Skill Library (82 Skills)
 

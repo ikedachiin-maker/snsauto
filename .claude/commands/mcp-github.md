@@ -1,6 +1,6 @@
 # GitHub統合 スキル
 
-miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです。
+taiyou-mcp-bundleのGitHub APIツール（18個）を活用するスキルです。
 
 ## 使用方法
 
@@ -18,39 +18,39 @@ miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__github_issues` | Issue一覧を取得 |
-| `mcp__miyabi-mcp__github_issue_details` | Issue詳細を取得 |
-| `mcp__miyabi-mcp__github_issue_comments` | Issueコメントを取得 |
-| `mcp__miyabi-mcp__github_create_issue` | Issueを作成 |
-| `mcp__miyabi-mcp__github_labels` | ラベル一覧を取得 |
+| `mcp__taiyou-mcp__github_issues` | Issue一覧を取得 |
+| `mcp__taiyou-mcp__github_issue_details` | Issue詳細を取得 |
+| `mcp__taiyou-mcp__github_issue_comments` | Issueコメントを取得 |
+| `mcp__taiyou-mcp__github_create_issue` | Issueを作成 |
+| `mcp__taiyou-mcp__github_labels` | ラベル一覧を取得 |
 
 ### Pull Request管理
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__github_pull_requests` | PR一覧を取得 |
-| `mcp__miyabi-mcp__github_pr_details` | PR詳細を取得 |
-| `mcp__miyabi-mcp__github_pr_files` | PR変更ファイルを取得 |
-| `mcp__miyabi-mcp__github_pr_reviews` | PRレビューを取得 |
-| `mcp__miyabi-mcp__github_pr_comments` | PRコメントを取得 |
+| `mcp__taiyou-mcp__github_pull_requests` | PR一覧を取得 |
+| `mcp__taiyou-mcp__github_pr_details` | PR詳細を取得 |
+| `mcp__taiyou-mcp__github_pr_files` | PR変更ファイルを取得 |
+| `mcp__taiyou-mcp__github_pr_reviews` | PRレビューを取得 |
+| `mcp__taiyou-mcp__github_pr_comments` | PRコメントを取得 |
 
 ### リポジトリ情報
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__github_repo_info` | リポジトリ情報を取得 |
-| `mcp__miyabi-mcp__github_branches` | ブランチ一覧を取得 |
-| `mcp__miyabi-mcp__github_branch_protection` | ブランチ保護設定を取得 |
-| `mcp__miyabi-mcp__github_commits` | コミット一覧を取得 |
-| `mcp__miyabi-mcp__github_compare` | コミット比較 |
+| `mcp__taiyou-mcp__github_repo_info` | リポジトリ情報を取得 |
+| `mcp__taiyou-mcp__github_branches` | ブランチ一覧を取得 |
+| `mcp__taiyou-mcp__github_branch_protection` | ブランチ保護設定を取得 |
+| `mcp__taiyou-mcp__github_commits` | コミット一覧を取得 |
+| `mcp__taiyou-mcp__github_compare` | コミット比較 |
 
 ### ワークフロー・リリース
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__github_workflows` | ワークフロー一覧を取得 |
-| `mcp__miyabi-mcp__github_workflow_runs` | ワークフロー実行履歴を取得 |
-| `mcp__miyabi-mcp__github_releases` | リリース一覧を取得 |
+| `mcp__taiyou-mcp__github_workflows` | ワークフロー一覧を取得 |
+| `mcp__taiyou-mcp__github_workflow_runs` | ワークフロー実行履歴を取得 |
+| `mcp__taiyou-mcp__github_releases` | リリース一覧を取得 |
 
 ---
 
@@ -62,7 +62,7 @@ miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです
 「オープン中のIssueを一覧表示して」
 
 使用ツール:
-- mcp__miyabi-mcp__github_issues
+- mcp__taiyou-mcp__github_issues
 
 パラメータ:
 - state: "open"
@@ -82,8 +82,8 @@ miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです
 「Issue #45の詳細を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__github_issue_details
-- mcp__miyabi-mcp__github_issue_comments
+- mcp__taiyou-mcp__github_issue_details
+- mcp__taiyou-mcp__github_issue_comments
 
 パラメータ:
 - issue_number: 45
@@ -110,7 +110,7 @@ miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです
 「レビュー待ちのPRを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__github_pull_requests
+- mcp__taiyou-mcp__github_pull_requests
 
 パラメータ:
 - state: "open"
@@ -135,8 +135,8 @@ miyabi-mcp-bundleのGitHub APIツール（18個）を活用するスキルです
 「PR #50の変更ファイルを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__github_pr_files
-- mcp__miyabi-mcp__github_pr_details
+- mcp__taiyou-mcp__github_pr_files
+- mcp__taiyou-mcp__github_pr_details
 
 パラメータ:
 - pr_number: 50
@@ -160,7 +160,7 @@ M src/routes.ts (+5, -0)
 「最近のCI/CD実行状況を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__github_workflow_runs
+- mcp__taiyou-mcp__github_workflow_runs
 
 出力例:
 【ワークフロー実行履歴】
@@ -179,7 +179,7 @@ M src/routes.ts (+5, -0)
 「最新のリリース情報を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__github_releases
+- mcp__taiyou-mcp__github_releases
 
 出力例:
 【リリース一覧】
@@ -198,7 +198,7 @@ M src/routes.ts (+5, -0)
 「mainとdevelopの差分を比較して」
 
 使用ツール:
-- mcp__miyabi-mcp__github_compare
+- mcp__taiyou-mcp__github_compare
 
 パラメータ:
 - base: "main"
@@ -268,8 +268,8 @@ M src/routes.ts (+5, -0)
 「バグ報告のIssueを作成して」
 
 使用ツール:
-- mcp__miyabi-mcp__github_labels (ラベル確認)
-- mcp__miyabi-mcp__github_create_issue
+- mcp__taiyou-mcp__github_labels (ラベル確認)
+- mcp__taiyou-mcp__github_create_issue
 
 パラメータ:
 - title: "Bug: ..."
@@ -287,10 +287,10 @@ M src/routes.ts (+5, -0)
 
 {
   "mcpServers": {
-    "miyabi-mcp": {
+    "taiyou-mcp": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "miyabi-mcp-bundle"],
+      "args": ["-y", "taiyou-mcp-bundle"],
       "env": {
         "GITHUB_TOKEN": "ghp_xxxxxxxxxxxx"
       }

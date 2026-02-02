@@ -6,7 +6,7 @@
 - 漫画LP作成
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/landing-pages/
+- taiyou-taiyo/content/landing-pages/
 
 ## LP構成要素
 1. ファーストビュー

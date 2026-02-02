@@ -119,7 +119,7 @@
   - Specialized (5)
   - Multi-Agent (4)
   - Process (5)
-  - Miyabi (6)
+  - Taiyou (6)
   - Others (16+)
 
 ### Skill System

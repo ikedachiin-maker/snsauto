@@ -154,7 +154,7 @@ claude
 
 # 以下のコマンドが使えます:
 # /agent-run      - エージェント実行
-# /miyabi-status  - 状態確認
+# /taiyou-status  - 状態確認
 # /verify         - システム検証
 ```
 

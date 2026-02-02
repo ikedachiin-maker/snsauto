@@ -6,9 +6,9 @@
 - 個別相談トーク設計
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/sales/vsl/
-- miyabi-taiyo/content/sales/seminar/
-- miyabi-taiyo/content/sales/consultation/
+- taiyou-taiyo/content/sales/vsl/
+- taiyou-taiyo/content/sales/seminar/
+- taiyou-taiyo/content/sales/consultation/
 
 ## VSL構成
 1. フック

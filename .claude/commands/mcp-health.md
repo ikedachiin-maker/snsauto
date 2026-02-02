@@ -1,6 +1,6 @@
 # システム総合診断 スキル
 
-miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです。
+taiyou-mcp-bundleの全ツールを組み合わせた総合診断スキルです。
 
 ## 使用方法
 
@@ -18,7 +18,7 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「システムのヘルスチェックを実行して」
 
 使用ツール:
-- mcp__miyabi-mcp__health_check
+- mcp__taiyou-mcp__health_check
 
 出力例:
 ━━━━━━━━━━━━━━━━━━━━
@@ -54,11 +54,11 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「開発環境の総合診断を実行して」
 
 使用ツール:
-- mcp__miyabi-mcp__system_info
-- mcp__miyabi-mcp__git_status
-- mcp__miyabi-mcp__process_search (node, docker)
-- mcp__miyabi-mcp__network_ports
-- mcp__miyabi-mcp__file_recent
+- mcp__taiyou-mcp__system_info
+- mcp__taiyou-mcp__git_status
+- mcp__taiyou-mcp__process_search (node, docker)
+- mcp__taiyou-mcp__network_ports
+- mcp__taiyou-mcp__file_recent
 
 出力:
 ━━━━━━━━━━━━━━━━━━━━
@@ -100,12 +100,12 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「パフォーマンス診断を実行して」
 
 使用ツール:
-- mcp__miyabi-mcp__system_cpu
-- mcp__miyabi-mcp__system_memory
-- mcp__miyabi-mcp__system_load
-- mcp__miyabi-mcp__process_top
-- mcp__miyabi-mcp__process_memory_top
-- mcp__miyabi-mcp__log_errors
+- mcp__taiyou-mcp__system_cpu
+- mcp__taiyou-mcp__system_memory
+- mcp__taiyou-mcp__system_load
+- mcp__taiyou-mcp__process_top
+- mcp__taiyou-mcp__process_memory_top
+- mcp__taiyou-mcp__log_errors
 
 出力:
 ━━━━━━━━━━━━━━━━━━━━
@@ -148,12 +148,12 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「ネットワーク診断を実行して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_interfaces
-- mcp__miyabi-mcp__network_public_ip
-- mcp__miyabi-mcp__network_wifi
-- mcp__miyabi-mcp__network_ping
-- mcp__miyabi-mcp__network_dns
-- mcp__miyabi-mcp__network_ports
+- mcp__taiyou-mcp__network_interfaces
+- mcp__taiyou-mcp__network_public_ip
+- mcp__taiyou-mcp__network_wifi
+- mcp__taiyou-mcp__network_ping
+- mcp__taiyou-mcp__network_dns
+- mcp__taiyou-mcp__network_ports
 
 出力:
 ━━━━━━━━━━━━━━━━━━━━
@@ -194,12 +194,12 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「プロジェクトの状態を診断して」
 
 使用ツール:
-- mcp__miyabi-mcp__git_status
-- mcp__miyabi-mcp__git_log
-- mcp__miyabi-mcp__github_issues
-- mcp__miyabi-mcp__github_pull_requests
-- mcp__miyabi-mcp__github_workflow_runs
-- mcp__miyabi-mcp__file_tree
+- mcp__taiyou-mcp__git_status
+- mcp__taiyou-mcp__git_log
+- mcp__taiyou-mcp__github_issues
+- mcp__taiyou-mcp__github_pull_requests
+- mcp__taiyou-mcp__github_workflow_runs
+- mcp__taiyou-mcp__file_tree
 
 出力:
 ━━━━━━━━━━━━━━━━━━━━
@@ -207,7 +207,7 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 ━━━━━━━━━━━━━━━━━━━━
 
 ■ リポジトリ情報
-  名前: miyabi-taiyo
+  名前: taiyou-taiyo
   ブランチ: main
   最終コミット: 30分前
 
@@ -245,10 +245,10 @@ miyabi-mcp-bundleの全ツールを組み合わせた総合診断スキルです
 「セキュリティ診断を実行して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_ports
-- mcp__miyabi-mcp__process_list
-- mcp__miyabi-mcp__file_permissions
-- mcp__miyabi-mcp__github_branch_protection
+- mcp__taiyou-mcp__network_ports
+- mcp__taiyou-mcp__process_list
+- mcp__taiyou-mcp__file_permissions
+- mcp__taiyou-mcp__github_branch_protection
 
 出力:
 ━━━━━━━━━━━━━━━━━━━━

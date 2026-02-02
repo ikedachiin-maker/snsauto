@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * Miyabi MCP Server
+ * Taiyou MCP Server
  *
- * Claude Code内でMiyabi CLIの全機能を直接呼び出せるMCPサーバー
+ * Claude Code内でTaiyou CLIの全機能を直接呼び出せるMCPサーバー
  *
  * 提供ツール:
- * - miyabi__init - 新規プロジェクト作成
- * - miyabi__install - 既存プロジェクトにインストール
- * - miyabi__status - ステータス確認
- * - miyabi__agent_run - Agent実行
- * - miyabi__auto - Water Spider全自動モード起動
- * - miyabi__todos - TODOコメント自動検出
- * - miyabi__config - 設定管理
+ * - taiyou__init - 新規プロジェクト作成
+ * - taiyou__install - 既存プロジェクトにインストール
+ * - taiyou__status - ステータス確認
+ * - taiyou__agent_run - Agent実行
+ * - taiyou__auto - Water Spider全自動モード起動
+ * - taiyou__todos - TODOコメント自動検出
+ * - taiyou__config - 設定管理
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
@@ -27,7 +27,7 @@ import { join } from 'path';
 
 const server = new Server(
   {
-    name: 'miyabi-integration',
+    name: 'taiyou-integration',
     version: '1.0.0',
   },
   {
@@ -38,11 +38,11 @@ const server = new Server(
 );
 
 /**
- * Execute miyabi command
+ * Execute taiyou command
  */
-function executeMiyabiCommand(command, options = {}) {
+function executeTaiyouCommand(command, options = {}) {
   try {
-    const cmd = `npx miyabi ${command}`;
+    const cmd = `npx taiyou ${command}`;
     const result = execSync(cmd, {
       encoding: 'utf-8',
       cwd: options.cwd || process.cwd(),
@@ -70,8 +70,8 @@ function executeMiyabiCommand(command, options = {}) {
 function getProjectStatus() {
   const cwd = process.cwd();
 
-  // Check if .miyabi.yml exists
-  const hasMiyabi = existsSync(join(cwd, '.miyabi.yml'));
+  // Check if .taiyou.yml exists
+  const hasTaiyou = existsSync(join(cwd, '.taiyou.yml'));
 
   // Check if .claude/ directory exists
   const hasClaude = existsSync(join(cwd, '.claude'));
@@ -94,7 +94,7 @@ function getProjectStatus() {
   }
 
   return {
-    hasMiyabi,
+    hasTaiyou,
     hasClaude,
     packageInfo,
     workingDirectory: cwd,
@@ -106,8 +106,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
       {
-        name: 'miyabi__init',
-        description: '新しいMiyabiプロジェクトを作成します。GitHub連携、Agent設定、Claude Code統合を含む完全なセットアップを実行します。',
+        name: 'taiyou__init',
+        description: '新しいTaiyouプロジェクトを作成します。GitHub連携、Agent設定、Claude Code統合を含む完全なセットアップを実行します。',
         inputSchema: {
           type: 'object',
           properties: {
@@ -130,8 +130,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__install',
-        description: '既存プロジェクトにMiyabiをインストールします。.claude/、GitHub Actions、組織設計ラベル体系を追加します。',
+        name: 'taiyou__install',
+        description: '既存プロジェクトにTaiyouをインストールします。.claude/、GitHub Actions、組織設計ラベル体系を追加します。',
         inputSchema: {
           type: 'object',
           properties: {
@@ -144,7 +144,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__status',
+        name: 'taiyou__status',
         description: 'プロジェクトの状態を確認します。GitHub Issues、Actions、Project V2の状態を表示します。',
         inputSchema: {
           type: 'object',
@@ -158,7 +158,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__agent_run',
+        name: 'taiyou__agent_run',
         description: 'Autonomous Agentを実行してGitHub Issueを自動処理します。CoordinatorAgent → CodeGenAgent → ReviewAgent → PRAgentの順で実行されます。',
         inputSchema: {
           type: 'object',
@@ -186,7 +186,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__auto',
+        name: 'taiyou__auto',
         description: 'Water Spider Agent（全自動モード）を起動します。GitHub Issueを自動的に検出・処理し続けます。',
         inputSchema: {
           type: 'object',
@@ -205,7 +205,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__todos',
+        name: 'taiyou__todos',
         description: 'コード内のTODOコメントを自動検出してGitHub Issueを作成します。',
         inputSchema: {
           type: 'object',
@@ -224,8 +224,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__config',
-        description: 'Miyabi設定を表示・編集します。',
+        name: 'taiyou__config',
+        description: 'Taiyou設定を表示・編集します。',
         inputSchema: {
           type: 'object',
           properties: {
@@ -247,8 +247,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: 'miyabi__get_status',
-        description: '現在のプロジェクトのMiyabi/Claude Code統合状態を取得します（軽量・高速）',
+        name: 'taiyou__get_status',
+        description: '現在のプロジェクトのTaiyou/Claude Code統合状態を取得します（軽量・高速）',
         inputSchema: {
           type: 'object',
           properties: {},
@@ -264,14 +264,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   try {
     switch (name) {
-      case 'miyabi__init': {
+      case 'taiyou__init': {
         const { projectName, private: isPrivate, skipInstall } = args;
         const flags = [
           isPrivate ? '--private' : '',
           skipInstall ? '--skip-install' : '',
         ].filter(Boolean);
 
-        const result = executeMiyabiCommand(`init ${projectName} ${flags.join(' ')}`);
+        const result = executeTaiyouCommand(`init ${projectName} ${flags.join(' ')}`);
 
         return {
           content: [
@@ -285,29 +285,29 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__install': {
+      case 'taiyou__install': {
         const { dryRun } = args;
         const flags = dryRun ? '--dry-run' : '';
 
-        const result = executeMiyabiCommand(`install ${flags}`);
+        const result = executeTaiyouCommand(`install ${flags}`);
 
         return {
           content: [
             {
               type: 'text',
               text: result.success
-                ? `✅ Miyabiをインストールしました\n\n${result.output}`
+                ? `✅ Taiyouをインストールしました\n\n${result.output}`
                 : `❌ インストールに失敗しました\n\nエラー: ${result.error}\n\n${result.stderr}`,
             },
           ],
         };
       }
 
-      case 'miyabi__status': {
+      case 'taiyou__status': {
         const { watch } = args;
         const flags = watch ? '--watch' : '';
 
-        const result = executeMiyabiCommand(`status ${flags}`);
+        const result = executeTaiyouCommand(`status ${flags}`);
 
         return {
           content: [
@@ -321,7 +321,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__agent_run': {
+      case 'taiyou__agent_run': {
         const { issueNumber, issueNumbers, concurrency, dryRun } = args;
 
         let command = 'agent run';
@@ -340,7 +340,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           command += ' --dry-run';
         }
 
-        const result = executeMiyabiCommand(command);
+        const result = executeTaiyouCommand(command);
 
         return {
           content: [
@@ -354,7 +354,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__auto': {
+      case 'taiyou__auto': {
         const { maxIssues, interval } = args;
 
         const flags = [
@@ -362,7 +362,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           interval ? `--interval ${interval}` : '',
         ].filter(Boolean);
 
-        const result = executeMiyabiCommand(`auto ${flags.join(' ')}`);
+        const result = executeTaiyouCommand(`auto ${flags.join(' ')}`);
 
         return {
           content: [
@@ -376,7 +376,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__todos': {
+      case 'taiyou__todos': {
         const { path, autoCreate } = args;
 
         const flags = [
@@ -384,7 +384,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           autoCreate ? '--auto-create' : '',
         ].filter(Boolean);
 
-        const result = executeMiyabiCommand(`todos ${flags.join(' ')}`);
+        const result = executeTaiyouCommand(`todos ${flags.join(' ')}`);
 
         return {
           content: [
@@ -398,7 +398,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__config': {
+      case 'taiyou__config': {
         const { action, key, value } = args;
 
         let command = 'config';
@@ -409,7 +409,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           command += ` --set ${key}=${value}`;
         }
 
-        const result = executeMiyabiCommand(command);
+        const result = executeTaiyouCommand(command);
 
         return {
           content: [
@@ -423,12 +423,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case 'miyabi__get_status': {
+      case 'taiyou__get_status': {
         const status = getProjectStatus();
 
         let statusText = '📊 プロジェクト状態\n\n';
         statusText += `作業ディレクトリ: ${status.workingDirectory}\n\n`;
-        statusText += `Miyabi統合: ${status.hasMiyabi ? '✅ あり' : '❌ なし'}\n`;
+        statusText += `Taiyou統合: ${status.hasTaiyou ? '✅ あり' : '❌ なし'}\n`;
         statusText += `Claude Code統合: ${status.hasClaude ? '✅ あり' : '❌ なし'}\n\n`;
 
         if (status.packageInfo) {
@@ -469,7 +469,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Miyabi MCP Server running on stdio');
+  console.error('Taiyou MCP Server running on stdio');
 }
 
 main().catch((error) => {

@@ -6,8 +6,8 @@
 - 長尺動画（10-20分）作成
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/youtube/long/ (長尺テンプレート)
-- miyabi-taiyo/content/youtube/shorts/ (ショートテンプレート)
+- taiyou-taiyo/content/youtube/long/ (長尺テンプレート)
+- taiyou-taiyo/content/youtube/shorts/ (ショートテンプレート)
 
 ## 長尺動画テーマ
 1. 自動化マーケティング

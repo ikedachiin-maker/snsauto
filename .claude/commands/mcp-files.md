@@ -1,6 +1,6 @@
 # ファイルウォッチャー スキル
 
-miyabi-mcp-bundleのファイルシステム操作ツール（10個）を活用するスキルです。
+taiyou-mcp-bundleのファイルシステム操作ツール（10個）を活用するスキルです。
 
 ## 使用方法
 
@@ -14,16 +14,16 @@ miyabi-mcp-bundleのファイルシステム操作ツール（10個）を活用�
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__file_recent` | 最近変更されたファイル一覧 |
-| `mcp__miyabi-mcp__file_tree` | ディレクトリツリー表示 |
-| `mcp__miyabi-mcp__file_search` | ファイル名検索 |
-| `mcp__miyabi-mcp__file_size` | ファイル/ディレクトリサイズ |
-| `mcp__miyabi-mcp__file_stats` | ファイル統計情報 |
-| `mcp__miyabi-mcp__file_compare` | ファイル比較 |
-| `mcp__miyabi-mcp__file_checksum` | チェックサム計算 |
-| `mcp__miyabi-mcp__file_duplicates` | 重複ファイル検出 |
-| `mcp__miyabi-mcp__file_large` | 大きいファイル検索 |
-| `mcp__miyabi-mcp__file_permissions` | パーミッション確認 |
+| `mcp__taiyou-mcp__file_recent` | 最近変更されたファイル一覧 |
+| `mcp__taiyou-mcp__file_tree` | ディレクトリツリー表示 |
+| `mcp__taiyou-mcp__file_search` | ファイル名検索 |
+| `mcp__taiyou-mcp__file_size` | ファイル/ディレクトリサイズ |
+| `mcp__taiyou-mcp__file_stats` | ファイル統計情報 |
+| `mcp__taiyou-mcp__file_compare` | ファイル比較 |
+| `mcp__taiyou-mcp__file_checksum` | チェックサム計算 |
+| `mcp__taiyou-mcp__file_duplicates` | 重複ファイル検出 |
+| `mcp__taiyou-mcp__file_large` | 大きいファイル検索 |
+| `mcp__taiyou-mcp__file_permissions` | パーミッション確認 |
 
 ---
 
@@ -35,7 +35,7 @@ miyabi-mcp-bundleのファイルシステム操作ツール（10個）を活用�
 「最近変更されたファイルを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__file_recent
+- mcp__taiyou-mcp__file_recent
 
 パラメータ:
 - path: "." (デフォルト: カレントディレクトリ)
@@ -61,7 +61,7 @@ miyabi-mcp-bundleのファイルシステム操作ツール（10個）を活用�
 「srcディレクトリの構造を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__file_tree
+- mcp__taiyou-mcp__file_tree
 
 パラメータ:
 - path: "src"
@@ -89,7 +89,7 @@ src/
 「.tsxファイルを全て検索して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_search
+- mcp__taiyou-mcp__file_search
 
 パラメータ:
 - pattern: "*.tsx"
@@ -112,7 +112,7 @@ src/pages/Home.tsx
 「node_modulesのサイズを確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_size
+- mcp__taiyou-mcp__file_size
 
 パラメータ:
 - path: "node_modules"
@@ -130,7 +130,7 @@ src/pages/Home.tsx
 「大きいファイルを探して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_large
+- mcp__taiyou-mcp__file_large
 
 パラメータ:
 - path: "."
@@ -151,7 +151,7 @@ src/pages/Home.tsx
 「重複ファイルを検出して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_duplicates
+- mcp__taiyou-mcp__file_duplicates
 
 パラメータ:
 - path: "."
@@ -176,7 +176,7 @@ src/pages/Home.tsx
 「2つのファイルを比較して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_compare
+- mcp__taiyou-mcp__file_compare
 
 パラメータ:
 - file1: "src/config.ts"
@@ -199,7 +199,7 @@ src/pages/Home.tsx
 「ファイルのチェックサムを計算して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_checksum
+- mcp__taiyou-mcp__file_checksum
 
 パラメータ:
 - path: "dist/bundle.js"
@@ -218,7 +218,7 @@ src/pages/Home.tsx
 「スクリプトファイルのパーミッションを確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__file_permissions
+- mcp__taiyou-mcp__file_permissions
 
 パラメータ:
 - path: "scripts/"

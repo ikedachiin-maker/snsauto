@@ -1,6 +1,6 @@
 # ログアグリゲーター スキル
 
-miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するスキルです。
+taiyou-mcp-bundleのログ管理・分析ツール（7個）を活用するスキルです。
 
 ## 使用方法
 
@@ -14,13 +14,13 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__log_sources` | ログソース一覧を取得 |
-| `mcp__miyabi-mcp__log_read` | ログファイルを読み取り |
-| `mcp__miyabi-mcp__log_tail` | ログの末尾を取得 |
-| `mcp__miyabi-mcp__log_search` | ログ内検索 |
-| `mcp__miyabi-mcp__log_errors` | エラーログをフィルタリング |
-| `mcp__miyabi-mcp__log_warnings` | 警告ログをフィルタリング |
-| `mcp__miyabi-mcp__log_stats` | ログ統計分析 |
+| `mcp__taiyou-mcp__log_sources` | ログソース一覧を取得 |
+| `mcp__taiyou-mcp__log_read` | ログファイルを読み取り |
+| `mcp__taiyou-mcp__log_tail` | ログの末尾を取得 |
+| `mcp__taiyou-mcp__log_search` | ログ内検索 |
+| `mcp__taiyou-mcp__log_errors` | エラーログをフィルタリング |
+| `mcp__taiyou-mcp__log_warnings` | 警告ログをフィルタリング |
+| `mcp__taiyou-mcp__log_stats` | ログ統計分析 |
 
 ---
 
@@ -32,7 +32,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「利用可能なログを一覧表示して」
 
 使用ツール:
-- mcp__miyabi-mcp__log_sources
+- mcp__taiyou-mcp__log_sources
 
 出力例:
 【ログソース一覧】
@@ -55,7 +55,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「アプリケーションの最新ログを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__log_tail
+- mcp__taiyou-mcp__log_tail
 
 パラメータ:
 - path: "./logs/app.log"
@@ -77,7 +77,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「エラーログだけを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__log_errors
+- mcp__taiyou-mcp__log_errors
 
 パラメータ:
 - path: "./logs/app.log"
@@ -103,7 +103,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「警告ログを確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__log_warnings
+- mcp__taiyou-mcp__log_warnings
 
 パラメータ:
 - path: "./logs/app.log"
@@ -123,7 +123,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「'timeout'を含むログを検索して」
 
 使用ツール:
-- mcp__miyabi-mcp__log_search
+- mcp__taiyou-mcp__log_search
 
 パラメータ:
 - path: "./logs/"
@@ -150,7 +150,7 @@ miyabi-mcp-bundleのログ管理・分析ツール（7個）を活用するス�
 「ログの統計を分析して」
 
 使用ツール:
-- mcp__miyabi-mcp__log_stats
+- mcp__taiyou-mcp__log_stats
 
 パラメータ:
 - path: "./logs/app.log"

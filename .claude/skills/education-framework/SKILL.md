@@ -35,5 +35,5 @@ Day 11-12: 行動促進
 Day 13-14: オファー
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/education/elements/
-- miyabi-taiyo/content/education/scenario/
+- taiyou-taiyo/content/education/elements/
+- taiyou-taiyo/content/education/scenario/

@@ -6,7 +6,7 @@
 - リードマグネット作成
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/note/ (テンプレート・サンプル)
+- taiyou-taiyo/content/note/ (テンプレート・サンプル)
 
 ## 記事タイプ
 ### 無料記事

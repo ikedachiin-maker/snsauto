@@ -6,7 +6,7 @@
 - キャラクターアニメーション
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/creative/anime/production-guide.md
+- taiyou-taiyo/content/creative/anime/production-guide.md
 
 ## 制作フロー
 1. 絵コンテ作成

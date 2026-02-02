@@ -23,7 +23,7 @@
 - 投稿前チェック
 
 ## 参照コンテンツ
-- miyabi-taiyo/video-agent/knowledge/sns/
+- taiyou-taiyo/video-agent/knowledge/sns/
   - patterns.json
   - platforms.json
   - risks.json

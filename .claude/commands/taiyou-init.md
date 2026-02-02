@@ -1,15 +1,15 @@
 ---
-description: 新しいMiyabiプロジェクト作成
+description: 新しいTaiyouプロジェクト作成
 ---
 
-# Miyabiプロジェクト作成
+# Taiyouプロジェクト作成
 
-新しいMiyabiプロジェクトを作成します。GitHub連携、Agent設定、Claude Code統合を含む完全なセットアップを実行します。
+新しいTaiyouプロジェクトを作成します。GitHub連携、Agent設定、Claude Code統合を含む完全なセットアップを実行します。
 
 ## MCPツール
 
-### `miyabi__init`
-新しいMiyabiプロジェクトを作成
+### `taiyou__init`
+新しいTaiyouプロジェクトを作成
 
 **パラメータ**:
 - `projectName`: プロジェクト名（英数字、ハイフン、アンダースコアのみ）
@@ -19,18 +19,18 @@ description: 新しいMiyabiプロジェクト作成
 **使用例**:
 ```
 パブリックプロジェクト作成:
-miyabi__init({ projectName: "my-awesome-app" })
+taiyou__init({ projectName: "my-awesome-app" })
 
 プライベートプロジェクト作成:
-miyabi__init({ projectName: "my-secret-project", private: true })
+taiyou__init({ projectName: "my-secret-project", private: true })
 
 npm installスキップ:
-miyabi__init({ projectName: "quick-setup", skipInstall: true })
+taiyou__init({ projectName: "quick-setup", skipInstall: true })
 ```
 
 ## 自動セットアップ内容
 
-`miyabi__init` を実行すると、以下が自動的に実行されます:
+`taiyou__init` を実行すると、以下が自動的に実行されます:
 
 ### 1. GitHub認証
 - Device Flow OAuthで安全に認証
@@ -88,9 +88,9 @@ miyabi__init({ projectName: "quick-setup", skipInstall: true })
 .claude/
 ├── mcp.json                # MCPサーバー設定
 ├── commands/
-│   ├── miyabi-agent.md     # /miyabi-agent
-│   ├── miyabi-status.md    # /miyabi-status
-│   └── miyabi-init.md      # /miyabi-init
+│   ├── taiyou-agent.md     # /taiyou-agent
+│   ├── taiyou-status.md    # /taiyou-status
+│   └── taiyou-init.md      # /taiyou-init
 ├── hooks/
 │   └── format.sh           # 自動フォーマット
 └── settings.json           # Claude設定
@@ -114,21 +114,21 @@ cd my-awesome-app
 
 ```bash
 # パブリックプロジェクト作成
-npx miyabi init my-awesome-app
+npx taiyou init my-awesome-app
 
 # プライベートプロジェクト作成
-npx miyabi init my-secret-project --private
+npx taiyou init my-secret-project --private
 
 # npm installスキップ
-npx miyabi init quick-setup --skip-install
+npx taiyou init quick-setup --skip-install
 ```
 
 ## 実行例
 
 ```bash
-$ npx miyabi init my-awesome-app
+$ npx taiyou init my-awesome-app
 
-✨ Miyabi - 一つのコマンドで全てが完結
+✨ Taiyou - 一つのコマンドで全てが完結
 
 🔐 GitHub認証中...
    Device Code: XXXX-XXXX
@@ -169,8 +169,8 @@ $ npx miyabi init my-awesome-app
 次のステップ:
   cd my-awesome-app
   code .               # VS Code / Claude Code で開く
-  npx miyabi status    # ステータス確認
-  npx miyabi auto      # 全自動モード起動
+  npx taiyou status    # ステータス確認
+  npx taiyou auto      # 全自動モード起動
 ```
 
 ## トラブルシューティング

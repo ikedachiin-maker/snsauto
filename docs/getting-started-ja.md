@@ -179,10 +179,10 @@ npm run proxy:start
 
 ```bash
 # Issueの自動処理
-/miyabi-agent
+/taiyou-agent
 
 # ステータス確認
-/miyabi-status
+/taiyou-status
 ```
 
 ## ロケール設定

@@ -42,11 +42,11 @@
       "description": "Context Engineering - AI-powered context analysis, optimization, and semantic search",
       "category": "ai"
     },
-    "miyabi": {
+    "taiyou": {
       "command": "node",
-      "args": [".claude/mcp-servers/miyabi-integration.js"],
+      "args": [".claude/mcp-servers/taiyou-integration.js"],
       "disabled": true,
-      "description": "Miyabi CLI - Project creation, Agent execution, automation features",
+      "description": "Taiyou CLI - Project creation, Agent execution, automation features",
       "category": "automation"
     },
     "dev3000": {
@@ -76,12 +76,12 @@
       "description": "YouTube subtitle downloader using yt-dlp",
       "category": "media"
     },
-    "miyabi-mcp": {
+    "taiyou-mcp": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "miyabi-mcp-bundle"],
+      "args": ["-y", "taiyou-mcp-bundle"],
       "disabled": true,
-      "description": "Miyabi MCP Bundle - All-in-one Miyabi integration",
+      "description": "Taiyou MCP Bundle - All-in-one Taiyou integration",
       "category": "automation"
     },
     "remotion-documentation": {
@@ -255,7 +255,7 @@
       "database": "PostgreSQL (RO/RW)",
       "communication": "Slack",
       "ai": "Context Engineering, Context7, Serena",
-      "automation": "Miyabi, Miyabi MCP Bundle",
+      "automation": "Taiyou, Taiyou MCP Bundle",
       "media": "YouTube Automation, Remotion",
       "testing": "Playwright",
       "observability": "Sentry",

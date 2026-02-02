@@ -1,7 +1,7 @@
 {
   "category": "agent",
   "description": "エージェント操作ツール群",
-  "source_servers": ["miyabi", "miyabi-mcp"],
+  "source_servers": ["taiyou", "taiyou-mcp"],
   "tools": [
     {"name": "agent_coordinate", "description": "エージェント統括"},
     {"name": "agent_delegate", "description": "タスク委譲"},

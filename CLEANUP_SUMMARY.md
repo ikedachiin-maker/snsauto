@@ -66,7 +66,7 @@ cp -r .claude .claude_backup_$(date +%Y%m%d)
 
 ```bash
 # システムが正常に動作するか確認
-/miyabi-status
+/taiyou-status
 /lp-normal
 /youtube-thumbnail
 ```
@@ -179,9 +179,9 @@ A: アーカイブ後、以下のように更新:
 | **Commands** | 49 | 実際に使用中のコマンド |
 ```
 
-### Q4: Miyabiエージェントは残すべきか？
+### Q4: Taiyouエージェントは残すべきか？
 
-A: はい。Miyabiエージェント（6個）は実際に使用されているため保持します。
+A: はい。Taiyouエージェント（6個）は実際に使用されているため保持します。
 
 ## 次のステップ
 

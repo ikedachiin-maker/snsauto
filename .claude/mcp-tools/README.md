@@ -9,7 +9,7 @@ MCPサーバーが提供するツール群のインデックス。
 | git | 20 | github-enhanced, github |
 | file | 18 | filesystem, project-context |
 | process | 19 | ide-integration |
-| agent | 18 | miyabi, miyabi-mcp |
+| agent | 18 | taiyou, taiyou-mcp |
 | marketing | 10 | (custom) |
 | sns | 10 | (custom) |
 | content | 9 | (custom) |

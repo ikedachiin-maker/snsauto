@@ -1,16 +1,16 @@
 ---
-description: Miyabi Agent実行 - Issue自動処理
+description: Taiyou Agent実行 - Issue自動処理
 ---
 
-# Miyabi Agent実行
+# Taiyou Agent実行
 
-GitHub IssueをMiyabi Autonomous Agentで自動処理します。
+GitHub IssueをTaiyou Autonomous Agentで自動処理します。
 
 ## 利用可能なMCPツール
 
-Claude CodeからMiyabi機能を直接呼び出せます：
+Claude CodeからTaiyou機能を直接呼び出せます：
 
-### `miyabi__agent_run`
+### `taiyou__agent_run`
 Autonomous Agentを実行してIssueを自動処理
 
 **パラメータ**:
@@ -22,16 +22,16 @@ Autonomous Agentを実行してIssueを自動処理
 **使用例**:
 ```
 単一Issue処理:
-miyabi__agent_run({ issueNumber: 123 })
+taiyou__agent_run({ issueNumber: 123 })
 
 複数Issue並列処理:
-miyabi__agent_run({ issueNumbers: [123, 124, 125], concurrency: 3 })
+taiyou__agent_run({ issueNumbers: [123, 124, 125], concurrency: 3 })
 
 Dry run:
-miyabi__agent_run({ issueNumber: 123, dryRun: true })
+taiyou__agent_run({ issueNumber: 123, dryRun: true })
 ```
 
-### `miyabi__auto`
+### `taiyou__auto`
 Water Spider Agent（全自動モード）起動
 
 **パラメータ**:
@@ -41,7 +41,7 @@ Water Spider Agent（全自動モード）起動
 **使用例**:
 ```
 全自動モード起動:
-miyabi__auto({ maxIssues: 10, interval: 30 })
+taiyou__auto({ maxIssues: 10, interval: 30 })
 ```
 
 ## 実行フロー
@@ -67,16 +67,16 @@ MCPツールの代わりにコマンドラインでも実行可能:
 
 ```bash
 # 単一Issue処理
-npx miyabi agent run --issue 123
+npx taiyou agent run --issue 123
 
 # 複数Issue並行処理
-npx miyabi agent run --issues 123,124,125 --concurrency 3
+npx taiyou agent run --issues 123,124,125 --concurrency 3
 
 # 全自動モード
-npx miyabi auto --max-issues 10
+npx taiyou auto --max-issues 10
 
 # Dry run
-npx miyabi agent run --issue 123 --dry-run
+npx taiyou agent run --issue 123 --dry-run
 ```
 
 ## 環境変数

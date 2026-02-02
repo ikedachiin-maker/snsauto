@@ -1,7 +1,7 @@
 {
   "category": "content",
   "description": "コンテンツ操作ツール群",
-  "source_servers": ["notion", "miyabi"],
+  "source_servers": ["notion", "taiyou"],
   "tools": [
     {"name": "content_generate", "description": "コンテンツ生成"},
     {"name": "content_edit", "description": "コンテンツ編集"},

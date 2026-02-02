@@ -1,6 +1,6 @@
 # システムモニター スキル
 
-miyabi-mcp-bundleのリソースモニター・プロセスインスペクターツール（22個）を活用するスキルです。
+taiyou-mcp-bundleのリソースモニター・プロセスインスペクターツール（22個）を活用するスキルです。
 
 ## 使用方法
 
@@ -16,33 +16,33 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__system_cpu` | CPU使用率を取得 |
-| `mcp__miyabi-mcp__system_memory` | メモリ使用量を取得 |
-| `mcp__miyabi-mcp__system_disk` | ディスク容量を取得 |
-| `mcp__miyabi-mcp__system_load` | システム負荷を取得 |
-| `mcp__miyabi-mcp__system_uptime` | 稼働時間を取得 |
-| `mcp__miyabi-mcp__system_info` | システム情報を取得 |
-| `mcp__miyabi-mcp__system_battery` | バッテリー状態を取得 |
-| `mcp__miyabi-mcp__system_temperature` | CPU温度を取得 |
-| `mcp__miyabi-mcp__system_users` | ログインユーザーを取得 |
-| `mcp__miyabi-mcp__system_processes_summary` | プロセスサマリーを取得 |
+| `mcp__taiyou-mcp__system_cpu` | CPU使用率を取得 |
+| `mcp__taiyou-mcp__system_memory` | メモリ使用量を取得 |
+| `mcp__taiyou-mcp__system_disk` | ディスク容量を取得 |
+| `mcp__taiyou-mcp__system_load` | システム負荷を取得 |
+| `mcp__taiyou-mcp__system_uptime` | 稼働時間を取得 |
+| `mcp__taiyou-mcp__system_info` | システム情報を取得 |
+| `mcp__taiyou-mcp__system_battery` | バッテリー状態を取得 |
+| `mcp__taiyou-mcp__system_temperature` | CPU温度を取得 |
+| `mcp__taiyou-mcp__system_users` | ログインユーザーを取得 |
+| `mcp__taiyou-mcp__system_processes_summary` | プロセスサマリーを取得 |
 
 ### プロセスインスペクター（12ツール）
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__process_list` | プロセス一覧を取得 |
-| `mcp__miyabi-mcp__process_tree` | プロセスツリーを表示 |
-| `mcp__miyabi-mcp__process_details` | プロセス詳細を取得 |
-| `mcp__miyabi-mcp__process_top` | CPU使用率上位プロセス |
-| `mcp__miyabi-mcp__process_memory_top` | メモリ使用率上位プロセス |
-| `mcp__miyabi-mcp__process_search` | プロセス検索 |
-| `mcp__miyabi-mcp__process_ports` | プロセスのポート使用状況 |
-| `mcp__miyabi-mcp__process_files` | プロセスの開いているファイル |
-| `mcp__miyabi-mcp__process_env` | プロセスの環境変数 |
-| `mcp__miyabi-mcp__process_memory_details` | メモリ詳細分析 |
-| `mcp__miyabi-mcp__process_children` | 子プロセス一覧 |
-| `mcp__miyabi-mcp__process_limits` | プロセスのリソース制限 |
+| `mcp__taiyou-mcp__process_list` | プロセス一覧を取得 |
+| `mcp__taiyou-mcp__process_tree` | プロセスツリーを表示 |
+| `mcp__taiyou-mcp__process_details` | プロセス詳細を取得 |
+| `mcp__taiyou-mcp__process_top` | CPU使用率上位プロセス |
+| `mcp__taiyou-mcp__process_memory_top` | メモリ使用率上位プロセス |
+| `mcp__taiyou-mcp__process_search` | プロセス検索 |
+| `mcp__taiyou-mcp__process_ports` | プロセスのポート使用状況 |
+| `mcp__taiyou-mcp__process_files` | プロセスの開いているファイル |
+| `mcp__taiyou-mcp__process_env` | プロセスの環境変数 |
+| `mcp__taiyou-mcp__process_memory_details` | メモリ詳細分析 |
+| `mcp__taiyou-mcp__process_children` | 子プロセス一覧 |
+| `mcp__taiyou-mcp__process_limits` | プロセスのリソース制限 |
 
 ---
 
@@ -54,10 +54,10 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 「システムの状態を確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__system_cpu
-- mcp__miyabi-mcp__system_memory
-- mcp__miyabi-mcp__system_disk
-- mcp__miyabi-mcp__system_load
+- mcp__taiyou-mcp__system_cpu
+- mcp__taiyou-mcp__system_memory
+- mcp__taiyou-mcp__system_disk
+- mcp__taiyou-mcp__system_load
 
 出力例:
 【システム状態】
@@ -73,9 +73,9 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 「システムが重い原因を調べて」
 
 使用ツール:
-- mcp__miyabi-mcp__process_top
-- mcp__miyabi-mcp__process_memory_top
-- mcp__miyabi-mcp__system_load
+- mcp__taiyou-mcp__process_top
+- mcp__taiyou-mcp__process_memory_top
+- mcp__taiyou-mcp__system_load
 
 出力例:
 【パフォーマンス診断】
@@ -96,10 +96,10 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 「nodeプロセスの詳細を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__process_search
-- mcp__miyabi-mcp__process_details
-- mcp__miyabi-mcp__process_ports
-- mcp__miyabi-mcp__process_memory_details
+- mcp__taiyou-mcp__process_search
+- mcp__taiyou-mcp__process_details
+- mcp__taiyou-mcp__process_ports
+- mcp__taiyou-mcp__process_memory_details
 
 パラメータ:
 - name: "node"
@@ -119,7 +119,7 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 「ポート3000を使っているプロセスを調べて」
 
 使用ツール:
-- mcp__miyabi-mcp__process_ports
+- mcp__taiyou-mcp__process_ports
 
 出力例:
 【ポート3000】
@@ -135,7 +135,7 @@ miyabi-mcp-bundleのリソースモニター・プロセスインスペクター
 「プロセスの親子関係を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__process_tree
+- mcp__taiyou-mcp__process_tree
 
 出力例:
 systemd(1)
@@ -152,8 +152,8 @@ systemd(1)
 「バッテリーとCPU温度を確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__system_battery
-- mcp__miyabi-mcp__system_temperature
+- mcp__taiyou-mcp__system_battery
+- mcp__taiyou-mcp__system_temperature
 
 出力例:
 【電源状態】

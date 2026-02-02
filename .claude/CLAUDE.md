@@ -94,7 +94,7 @@ AIエージェント、MCPツール、マーケティングスキルを完全統
 
 | Component | Count | Active | Description |
 |-----------|-------|--------|-------------|
-| **Agents** | 82 | 11 | AIT42 + Miyabi統合エージェント |
+| **Agents** | 82 | 11 | AIT42 + Taiyou統合エージェント |
 | **Skills** | 66 | 55 | マーケティング・クリエイティブ・インフラ |
 | **Commands** | 82 | 49 | ショートカットコマンド |
 | **MCP Servers** | 36 | - | 外部サービス連携 |
@@ -112,7 +112,7 @@ taisun_v2/.claude/
 ├── mcp-servers/         # カスタムMCPサーバー (4)
 ├── mcp-tools/           # → taisun MCPツール (227)
 ├── hooks/               # 8層防御システム (21ファイル)
-├── content-reference/   # → miyabi-taiyo/content
+├── content-reference/   # → taiyou-taiyo/content
 ├── video-agent-reference/ # → video-agent
 ├── CLAUDE.md            # このファイル
 └── settings.json        # 設定
@@ -171,10 +171,10 @@ taisun_v2/.claude/
 - `workflow-coordinator`, `integration-planner`
 - `process-optimizer`, `metrics-collector`, `requirements-elicitation`
 
-### Miyabi Agents (6)
-- `miyabi-coordinator-agent`, `miyabi-codegen-agent`
-- `miyabi-issue-agent`, `miyabi-pr-agent`
-- `miyabi-review-agent`, `miyabi-deployment-agent`
+### Taiyou Agents (6)
+- `taiyou-coordinator-agent`, `taiyou-codegen-agent`
+- `taiyou-issue-agent`, `taiyou-pr-agent`
+- `taiyou-review-agent`, `taiyou-deployment-agent`
 
 ### Specialized Tools (16+)
 - Data analyst, Researcher, Automation architect, etc.
@@ -255,7 +255,7 @@ taisun_v2/.claude/
 | **Communication** | slack |
 | **AI** | context-engineering, context7, serena, gpt-researcher |
 | **Design** | figma |
-| **Automation** | miyabi, miyabi-mcp |
+| **Automation** | taiyou, taiyou-mcp |
 | **Media** | youtube-automation, remotion-documentation |
 | **Testing** | playwright |
 | **Observability** | sentry |
@@ -297,8 +297,8 @@ taisun_v2/.claude/
 ### Marketing
 `lp-normal`, `lp-manga`, `kindle-line-vsl`, `note-line-vsl`, `youtube-thumbnail`
 
-### Miyabi
-`miyabi-agent`, `miyabi-auto`, `miyabi-status`, `miyabi-todos`, `create-issue`
+### Taiyou
+`taiyou-agent`, `taiyou-auto`, `taiyou-status`, `taiyou-todos`, `create-issue`
 
 ### MCP
 `mcp-health`, `mcp-git`, `mcp-github`, `mcp-files`, `mcp-system`
@@ -315,7 +315,7 @@ taisun_v2/.claude/
 /security-scan
 
 # 状態確認
-/miyabi-status
+/taiyou-status
 /mcp-health
 ```
 

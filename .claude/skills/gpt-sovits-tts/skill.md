@@ -8,7 +8,7 @@
 |------|------|
 | ツール | GPT-SoVITS v2 |
 | 開発元 | RVC-Boss |
-| インストール先 | `/Users/matsumototoshihiko/Desktop/semi/miyabi_taiyou/GPT-SoVITS` |
+| インストール先 | `/Users/matsumototoshihiko/Desktop/semi/taiyou_taiyou/GPT-SoVITS` |
 | 用途 | 音声クローニング、ナレーション生成 |
 
 ## 特徴
@@ -23,7 +23,7 @@
 ### 1. 環境起動
 
 ```bash
-cd /Users/matsumototoshihiko/Desktop/semi/miyabi_taiyou/GPT-SoVITS
+cd /Users/matsumototoshihiko/Desktop/semi/taiyou_taiyou/GPT-SoVITS
 source venv/bin/activate
 
 # WebUI起動（ポート9874）
@@ -161,7 +161,7 @@ GPT-SoVITSで生成した音声を使って、Creatify Aurora APIでリップシ
 ### 使用方法
 
 ```bash
-cd /Users/matsumototoshihiko/Desktop/semi/miyabi_taiyou/GPT-SoVITS
+cd /Users/matsumototoshihiko/Desktop/semi/taiyou_taiyou/GPT-SoVITS
 source venv/bin/activate
 
 # リップシンク動画を生成

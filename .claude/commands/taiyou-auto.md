@@ -1,14 +1,14 @@
 ---
-description: Miyabi Water Spider全自動モード起動
+description: Taiyou Water Spider全自動モード起動
 ---
 
-# Miyabi Water Spider全自動モード
+# Taiyou Water Spider全自動モード
 
 Water Spider Agent（水すまし）を起動して、GitHub Issueを自動的に検出・処理します。
 
 ## MCPツール
 
-### `miyabi__auto`
+### `taiyou__auto`
 Water Spider全自動モードを起動
 
 **パラメータ**:
@@ -18,10 +18,10 @@ Water Spider全自動モードを起動
 **使用例**:
 ```
 全自動モード起動（デフォルト設定）:
-miyabi__auto({})
+taiyou__auto({})
 
 最大10 Issue、30秒間隔:
-miyabi__auto({ maxIssues: 10, interval: 30 })
+taiyou__auto({ maxIssues: 10, interval: 30 })
 ```
 
 ## 動作フロー
@@ -61,13 +61,13 @@ MCPツールの代わりにコマンドラインでも実行可能:
 
 ```bash
 # デフォルト設定で起動
-npx miyabi auto
+npx taiyou auto
 
 # 最大Issue数と間隔を指定
-npx miyabi auto --max-issues 10 --interval 30
+npx taiyou auto --max-issues 10 --interval 30
 
 # 1回だけ実行（ポーリングなし）
-npx miyabi auto --max-issues 5 --interval 0
+npx taiyou auto --max-issues 5 --interval 0
 ```
 
 ## 環境変数
@@ -95,10 +95,10 @@ Water Spiderはバックグラウンドで実行されないため、Claude Code
 ### プログラム的停止
 ```bash
 # maxIssues到達で自動停止
-npx miyabi auto --max-issues 3
+npx taiyou auto --max-issues 3
 
 # interval=0 で1回のみ実行
-npx miyabi auto --interval 0
+npx taiyou auto --interval 0
 ```
 
 ## 成功条件
@@ -167,7 +167,7 @@ GitHub API レート制限に達した場合:
 ```
 あなた: "全自動モードで未処理Issueを5件処理して"
 
-Claude: [miyabi__auto({ maxIssues: 5 }) を実行]
+Claude: [taiyou__auto({ maxIssues: 5 }) を実行]
 
 Water Spider Agent起動
 ✓ Issue #123を検出
@@ -188,7 +188,7 @@ Water Spider Agent起動
 ```
 あなた: "30秒ごとにIssueをチェックして、最大10件処理"
 
-Claude: [miyabi__auto({ maxIssues: 10, interval: 30 }) を実行]
+Claude: [taiyou__auto({ maxIssues: 10, interval: 30 }) を実行]
 
 Water Spider Agent起動（継続監視モード）
 [00:00] ポーリング中...
@@ -237,17 +237,17 @@ Water Spider Agent起動（継続監視モード）
 
 **通常運用**:
 ```bash
-npx miyabi auto --max-issues 10 --interval 60
+npx taiyou auto --max-issues 10 --interval 60
 ```
 
 **夜間バッチ処理**:
 ```bash
-npx miyabi auto --max-issues 50 --interval 0
+npx taiyou auto --max-issues 50 --interval 0
 ```
 
 **テスト・検証**:
 ```bash
-npx miyabi auto --max-issues 1 --interval 0 --dry-run
+npx taiyou auto --max-issues 1 --interval 0 --dry-run
 ```
 
 ### ⚠️ 注意事項

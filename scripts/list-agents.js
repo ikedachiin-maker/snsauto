@@ -38,7 +38,7 @@ function categorizeAgents(agents) {
     analysis: [],
     specialized: [],
     multiAgent: [],
-    miyabi: [],
+    taiyou: [],
     other: []
   };
 
@@ -54,7 +54,7 @@ function categorizeAgents(agents) {
     else if (name.includes('doc') || name.includes('writer') || name.includes('knowledge')) categories.documentation.push(agent);
     else if (name.includes('analy') || name.includes('scout') || name.includes('learning')) categories.analysis.push(agent);
     else if (name.includes('multi-agent') || name.includes('reflection') || name.includes('ensemble')) categories.multiAgent.push(agent);
-    else if (name.includes('miyabi')) categories.miyabi.push(agent);
+    else if (name.includes('taiyou')) categories.taiyou.push(agent);
     else if (name.includes('bug') || name.includes('refactor') || name.includes('script') ||
              name.includes('implementation')) categories.specialized.push(agent);
     else categories.other.push(agent);

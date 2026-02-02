@@ -1,6 +1,6 @@
 # ネットワークインスペクター スキル
 
-miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用するスキルです。
+taiyou-mcp-bundleのネットワーク監視ツール（12個）を活用するスキルです。
 
 ## 使用方法
 
@@ -14,18 +14,18 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 
 | ツール名 | 機能 |
 |---------|------|
-| `mcp__miyabi-mcp__network_interfaces` | ネットワークインターフェース一覧 |
-| `mcp__miyabi-mcp__network_connections` | アクティブな接続一覧 |
-| `mcp__miyabi-mcp__network_ports` | 使用中のポート一覧 |
-| `mcp__miyabi-mcp__network_stats` | ネットワーク統計情報 |
-| `mcp__miyabi-mcp__network_dns` | DNSルックアップ |
-| `mcp__miyabi-mcp__network_ping` | Ping実行 |
-| `mcp__miyabi-mcp__network_public_ip` | 公開IPアドレス取得 |
-| `mcp__miyabi-mcp__network_wifi` | WiFi情報取得 |
-| `mcp__miyabi-mcp__network_route` | ルーティングテーブル |
-| `mcp__miyabi-mcp__network_arp` | ARPテーブル |
-| `mcp__miyabi-mcp__network_bandwidth` | 帯域幅測定 |
-| `mcp__miyabi-mcp__network_port_check` | 特定ポートの確認 |
+| `mcp__taiyou-mcp__network_interfaces` | ネットワークインターフェース一覧 |
+| `mcp__taiyou-mcp__network_connections` | アクティブな接続一覧 |
+| `mcp__taiyou-mcp__network_ports` | 使用中のポート一覧 |
+| `mcp__taiyou-mcp__network_stats` | ネットワーク統計情報 |
+| `mcp__taiyou-mcp__network_dns` | DNSルックアップ |
+| `mcp__taiyou-mcp__network_ping` | Ping実行 |
+| `mcp__taiyou-mcp__network_public_ip` | 公開IPアドレス取得 |
+| `mcp__taiyou-mcp__network_wifi` | WiFi情報取得 |
+| `mcp__taiyou-mcp__network_route` | ルーティングテーブル |
+| `mcp__taiyou-mcp__network_arp` | ARPテーブル |
+| `mcp__taiyou-mcp__network_bandwidth` | 帯域幅測定 |
+| `mcp__taiyou-mcp__network_port_check` | 特定ポートの確認 |
 
 ---
 
@@ -37,9 +37,9 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「ネットワークの状態を確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_interfaces
-- mcp__miyabi-mcp__network_connections
-- mcp__miyabi-mcp__network_public_ip
+- mcp__taiyou-mcp__network_interfaces
+- mcp__taiyou-mcp__network_connections
+- mcp__taiyou-mcp__network_public_ip
 
 出力例:
 【ネットワーク状態】
@@ -57,7 +57,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「使用中のポートを一覧表示して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_ports
+- mcp__taiyou-mcp__network_ports
 
 出力例:
 【使用中ポート】
@@ -74,7 +74,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「ポート8080が使用可能か確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_port_check
+- mcp__taiyou-mcp__network_port_check
 
 パラメータ:
 - port: 8080
@@ -97,7 +97,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「example.comのDNSを確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_dns
+- mcp__taiyou-mcp__network_dns
 
 パラメータ:
 - domain: "example.com"
@@ -116,7 +116,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「google.comへの接続を確認して」
 
 使用ツール:
-- mcp__miyabi-mcp__network_ping
+- mcp__taiyou-mcp__network_ping
 
 パラメータ:
 - host: "google.com"
@@ -134,7 +134,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「WiFiの接続情報を見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__network_wifi
+- mcp__taiyou-mcp__network_wifi
 
 出力例:
 【WiFi情報】
@@ -151,7 +151,7 @@ miyabi-mcp-bundleのネットワーク監視ツール（12個）を活用する�
 「ルーティングテーブルを見せて」
 
 使用ツール:
-- mcp__miyabi-mcp__network_route
+- mcp__taiyou-mcp__network_route
 
 出力例:
 【ルーティングテーブル】

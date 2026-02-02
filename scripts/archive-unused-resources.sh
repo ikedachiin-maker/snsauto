@@ -223,7 +223,7 @@ archive_commands() {
         "manage-incidents"
         "manage-infrastructure"
         "manage-knowledge"
-        "miyabi-init"
+        "taiyou-init"
         "opencode-setup"
         "optimize-containers"
         "optimize-process"

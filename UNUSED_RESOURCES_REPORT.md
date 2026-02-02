@@ -121,12 +121,12 @@
 ### 1.2 使用されているエージェント（11個のみ）
 
 - `00-ait42-coordinator` - メインコーディネーター
-- `miyabi-codegen-agent`
-- `miyabi-coordinator-agent`
-- `miyabi-deployment-agent`
-- `miyabi-issue-agent`
-- `miyabi-pr-agent`
-- `miyabi-review-agent`
+- `taiyou-codegen-agent`
+- `taiyou-coordinator-agent`
+- `taiyou-deployment-agent`
+- `taiyou-issue-agent`
+- `taiyou-pr-agent`
+- `taiyou-review-agent`
 
 ---
 
@@ -205,16 +205,16 @@
 - `workflow-status` - ワークフロー状態
 - `workflow-verify` - ワークフロー検証
 
-#### Miyabi
-- `miyabi-init` - Miyabi初期化
+#### Taiyou
+- `taiyou-init` - Taiyou初期化
 
 #### OpenCode
 - `opencode-setup` - OpenCodeセットアップ
 
 ### 3.2 使用されているコマンド
 
-- `/miyabi-auto` - Miyabi自動実行
-- `/miyabi-status` - Miyabi状態確認
+- `/taiyou-auto` - Taiyou自動実行
+- `/taiyou-status` - Taiyou状態確認
 - `/lp-normal` - 通常LP作成
 - `/youtube-thumbnail` - サムネイル作成
 - `/security-scan` - セキュリティスキャン
@@ -323,7 +323,7 @@ rm -rf .claude/archive/
 │
 ├── agents/                      # 11個のみ保持
 │   ├── 00-ait42-coordinator.md
-│   ├── miyabi-*.md (6個)
+│   ├── taiyou-*.md (6個)
 │   └── ... (使用中のみ)
 │
 ├── skills/                      # 59個保持
@@ -332,7 +332,7 @@ rm -rf .claude/archive/
 │   └── ... (使用中のみ)
 │
 ├── commands/                    # 49個保持
-│   ├── miyabi-auto.md
+│   ├── taiyou-auto.md
 │   ├── lp-normal.md
 │   └── ... (使用中のみ)
 │
@@ -363,7 +363,7 @@ agents:
   ait42-coordinator:
     last_used: 2026-01-18
     usage_count: 47
-  miyabi-coordinator-agent:
+  taiyou-coordinator-agent:
     last_used: 2026-01-17
     usage_count: 23
 ```
@@ -582,7 +582,7 @@ manage-backups.md
 manage-incidents.md
 manage-infrastructure.md
 manage-knowledge.md
-miyabi-init.md
+taiyou-init.md
 opencode-setup.md
 optimize-containers.md
 optimize-process.md

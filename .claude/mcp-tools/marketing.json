@@ -1,7 +1,7 @@
 {
   "category": "marketing",
   "description": "マーケティング支援ツール群",
-  "source_servers": ["miyabi", "notion"],
+  "source_servers": ["taiyou", "notion"],
   "tools": [
     {"name": "lp_generate", "description": "LP生成"},
     {"name": "lp_analyze", "description": "LP分析"},

@@ -6,8 +6,8 @@
 - LINE公式アカウント運用
 
 ## 参照コンテンツ
-- miyabi-taiyo/content/line/step-messages/ (10日間シナリオ)
-- miyabi-taiyo/content/line/rich-menu/
+- taiyou-taiyo/content/line/step-messages/ (10日間シナリオ)
+- taiyou-taiyo/content/line/rich-menu/
 
 ## ステップメッセージ構成
 - Day 1: ウェルカム
