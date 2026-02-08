@@ -2,6 +2,54 @@
 
 **Unified Development & Marketing Platform** - AIエージェント、MCPツール、マーケティングスキルを統合した次世代開発プラットフォーム
 
+---
+
+## 🚀 TSIS クイックスタート（SNS自動化）
+
+**TSIS (TAISUN SNS Intelligence System)** - キーワードからSNS投稿＋動画台本を自動生成
+
+### セットアップ
+
+```bash
+# 1. リポジトリをクローン
+git clone https://github.com/ikedachiin-maker/snsauto.git
+cd snsauto
+
+# 2. 依存関係をインストール
+npm install
+
+# 3. ビルド
+npm run build:all
+
+# 4. デモ実行
+npx ts-node scripts/tsis-demo.ts "AI副業"
+```
+
+### 出力内容
+
+| 出力 | 内容 |
+|------|------|
+| 📝 記事（2000文字〜） | SEO対策済みMarkdown |
+| 📱 SNS投稿×4 | Twitter, Instagram, LinkedIn, Threads |
+| 🎬 動画台本×3 | TikTok, Reels, Shorts（60秒構成） |
+
+### 出力ファイル
+
+```
+output/tsis-demo/
+├── article_*.md              # 記事本文
+├── distribution_*.json       # 配信データ（全体）
+├── script_tiktok_*.md        # TikTok台本
+├── script_instagram_reels_*.md   # Reels台本
+└── script_youtube_shorts_*.md    # Shorts台本
+```
+
+### 詳細ドキュメント
+
+👉 [TSIS スキルドキュメント](.claude/skills/sns-intelligence-system/SKILL.md)
+
+---
+
 [![CI](https://github.com/taiyousan15/taisun_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/taiyousan15/taisun_agent/actions/workflows/ci.yml)
 [![Security Scan](https://github.com/taiyousan15/taisun_agent/actions/workflows/security.yml/badge.svg)](https://github.com/taiyousan15/taisun_agent/actions/workflows/security.yml)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green)](https://nodejs.org/)
