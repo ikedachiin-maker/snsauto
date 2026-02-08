@@ -1,0 +1,112 @@
+{
+  "$schema": "./actors.schema.json",
+  "version": "1.0.0",
+  "description": "TSIS Apify Actor設定 - 10 SNSプラットフォーム対応",
+  "actors": {
+    "twitter": {
+      "actorId": "apidojo/tweet-scraper",
+      "defaultInput": {
+        "maxItems": 100,
+        "sort": "Latest"
+      },
+      "priority": "P1",
+      "rateLimit": {
+        "maxRequestsPerMinute": 30
+      }
+    },
+    "instagram": {
+      "actorId": "apify/instagram-scraper",
+      "defaultInput": {
+        "resultsLimit": 100,
+        "resultsType": "posts"
+      },
+      "priority": "P1",
+      "rateLimit": {
+        "maxRequestsPerMinute": 20
+      }
+    },
+    "youtube": {
+      "actorId": "streamers/youtube-scraper",
+      "defaultInput": {
+        "maxResults": 100,
+        "sortBy": "date"
+      },
+      "priority": "P1",
+      "rateLimit": {
+        "maxRequestsPerMinute": 30
+      }
+    },
+    "tiktok": {
+      "actorId": "clockworks/tiktok-scraper",
+      "defaultInput": {
+        "maxItems": 100,
+        "shouldDownloadVideos": false
+      },
+      "priority": "P1",
+      "rateLimit": {
+        "maxRequestsPerMinute": 20
+      }
+    },
+    "facebook": {
+      "actorId": "apify/facebook-posts-scraper",
+      "defaultInput": {
+        "maxPosts": 100
+      },
+      "priority": "P2",
+      "rateLimit": {
+        "maxRequestsPerMinute": 15
+      }
+    },
+    "linkedin": {
+      "actorId": "dev_fusion/linkedin-profile-scraper",
+      "defaultInput": {
+        "maxItems": 50
+      },
+      "priority": "P2",
+      "rateLimit": {
+        "maxRequestsPerMinute": 10
+      }
+    },
+    "reddit": {
+      "actorId": "trudax/reddit-scraper",
+      "defaultInput": {
+        "maxItems": 100,
+        "sort": "new"
+      },
+      "priority": "P2",
+      "rateLimit": {
+        "maxRequestsPerMinute": 30
+      }
+    },
+    "pinterest": {
+      "actorId": "easyapi/pinterest-search-scraper",
+      "defaultInput": {
+        "maxItems": 100
+      },
+      "priority": "P3",
+      "rateLimit": {
+        "maxRequestsPerMinute": 20
+      }
+    },
+    "threads": {
+      "actorId": "red.cars/threads-scraper",
+      "defaultInput": {
+        "maxItems": 100
+      },
+      "priority": "P3",
+      "rateLimit": {
+        "maxRequestsPerMinute": 20
+      }
+    },
+    "bluesky": {
+      "actorId": "red.cars/bluesky-scraper",
+      "defaultInput": {
+        "maxItems": 100
+      },
+      "priority": "P3",
+      "rateLimit": {
+        "maxRequestsPerMinute": 30
+      }
+    }
+  }
+}

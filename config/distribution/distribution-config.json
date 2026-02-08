@@ -1,0 +1,26 @@
+{
+  "$schema": "./distribution-config.schema.json",
+  "version": "1.0.0",
+  "description": "マルチチャネル配信設定（TSIS Phase 5）",
+  "defaultPlatforms": ["twitter", "instagram", "linkedin", "threads"],
+  "defaultVideoFormats": ["instagram_reels", "tiktok", "youtube_shorts"],
+  "schedule": {
+    "defaultStrategy": "staggered",
+    "defaultTimezone": "Asia/Tokyo",
+    "staggeredInterval": 60
+  },
+  "hooks": {
+    "patterns": ["question", "prohibition", "shocking", "number", "empathy", "contrast", "authority"],
+    "defaultPattern": "question"
+  },
+  "cta": {
+    "types": ["follow", "save", "comment", "share", "profile", "link"],
+    "defaultType": "follow"
+  },
+  "video": {
+    "defaultDuration": 60,
+    "hookDuration": 5,
+    "ctaDuration": 10,
+    "mainPointCount": 3
+  }
+}

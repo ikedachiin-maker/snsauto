@@ -24,6 +24,56 @@
       "dow": "Mon",
       "at": "09:20",
       "postToIssue": true
+    },
+    "daily_sns_collection": {
+      "enabled": false,
+      "cadence": "daily",
+      "at": "06:00",
+      "description": "全SNSプラットフォームからの日次データ収集（TSIS）",
+      "task": "sns.collect",
+      "params": { "priority": "all" }
+    },
+    "daily_trend_monitor": {
+      "enabled": false,
+      "cadence": "daily",
+      "at": "07:00",
+      "description": "トレンドデータの日次収集 - 35+ソース（TSIS）",
+      "task": "sns.trends"
+    },
+    "weekly_sns_analysis": {
+      "enabled": false,
+      "cadence": "weekly",
+      "dow": "Mon",
+      "at": "08:00",
+      "description": "週次SNS分析レポート生成（TSIS Phase 3）",
+      "task": "sns.analyze",
+      "params": {
+        "period": "last_7_days",
+        "enableSentiment": true,
+        "enableCompetitors": false
+      }
+    },
+    "daily_content_generation": {
+      "enabled": false,
+      "cadence": "daily",
+      "at": "09:00",
+      "description": "トレンドから記事自動生成（TSIS Phase 4）",
+      "task": "content.pipeline",
+      "params": {
+        "autoPublish": false,
+        "seoScoreThreshold": 80
+      }
+    },
+    "daily_distribution": {
+      "enabled": false,
+      "cadence": "daily",
+      "at": "10:00",
+      "description": "記事からSNS投稿・動画台本を生成して配信（TSIS Phase 5）",
+      "task": "distribution.repurpose",
+      "params": {
+        "autoPublish": false,
+        "scheduleStrategy": "staggered"
+      }
     }
   },
   "redaction": {

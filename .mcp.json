@@ -177,6 +177,115 @@
       "search_keywords": ["memory", "記憶", "context"],
       "description": "コンテキスト記憶",
       "category": "memory"
+    },
+
+    "_comment_tsis": "=== TSIS: SNS Intelligence System（遅延ロード） ===",
+
+    "sociavault": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "sociavault-mcp-server"],
+      "env": {
+        "SOCIAVAULT_API_KEY": "${SOCIAVAULT_API_KEY}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["SNS分析", "ソーシャル", "エンゲージメント", "フォロワー", "sociavault"],
+      "cost_warning": true,
+      "description": "SNS統合分析（Instagram/TikTok/X/Threads/YouTube/Facebook/Reddit）",
+      "category": "sns-intelligence"
+    },
+    "dataforseo": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "dataforseo-mcp-server"],
+      "env": {
+        "DATAFORSEO_LOGIN": "${DATAFORSEO_LOGIN}",
+        "DATAFORSEO_PASSWORD": "${DATAFORSEO_PASSWORD}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["SEO", "SERP", "キーワード", "バックリンク", "ドメイン分析"],
+      "cost_warning": true,
+      "description": "SEO/SERP/キーワード/バックリンク分析",
+      "category": "sns-intelligence"
+    },
+    "gsc": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "gsc-mcp-server"],
+      "env": {
+        "GSC_CREDENTIALS_PATH": "${GSC_CREDENTIALS_PATH}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["Search Console", "GSC", "検索パフォーマンス", "インデックス"],
+      "description": "Google Search Console分析",
+      "category": "sns-intelligence"
+    },
+    "ghost-cms": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "ghost-mcp-server"],
+      "env": {
+        "GHOST_URL": "${GHOST_URL}",
+        "GHOST_ADMIN_KEY": "${GHOST_ADMIN_KEY}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["ブログ", "記事公開", "CMS", "Ghost"],
+      "description": "Ghost CMS記事管理・公開",
+      "category": "sns-intelligence"
+    },
+    "whats-trending": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "whats-trending-mcp"],
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["トレンド", "バズ", "急上昇", "話題"],
+      "description": "35+ソースからのトレンド監視",
+      "category": "sns-intelligence"
+    },
+    "x-api": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "x-api-mcp-server"],
+      "env": {
+        "X_API_KEY": "${X_API_KEY}",
+        "X_API_SECRET": "${X_API_SECRET}",
+        "X_ACCESS_TOKEN": "${X_ACCESS_TOKEN}",
+        "X_ACCESS_SECRET": "${X_ACCESS_SECRET}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["ツイート", "投稿", "X投稿", "Twitter投稿"],
+      "description": "Twitter/X投稿・管理API",
+      "category": "sns-intelligence"
+    },
+    "bright-data": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@brightdata/mcp"],
+      "env": {
+        "BRIGHT_DATA_API_TOKEN": "${BRIGHT_DATA_API_TOKEN}"
+      },
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["プロキシ", "大規模スクレイピング", "CAPTCHA", "brightdata"],
+      "cost_warning": true,
+      "description": "エンタープライズ級スクレイピング（プロキシ自動回転）",
+      "category": "sns-intelligence"
+    },
+    "short-video": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "short-video-maker-mcp"],
+      "disabled": false,
+      "defer_loading": true,
+      "search_keywords": ["ショート動画", "Reels", "Shorts", "TikTok動画"],
+      "description": "テキスト→ショート動画自動生成（TTS/字幕/BGM）",
+      "category": "sns-intelligence"
     }
   }
 }

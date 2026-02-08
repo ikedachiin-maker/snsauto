@@ -1,0 +1,72 @@
+{
+  "$schema": "./platform-constraints.schema.json",
+  "version": "1.0.0",
+  "description": "プラットフォーム別制約設定（TSIS Phase 5）",
+  "platforms": {
+    "twitter": {
+      "maxLength": 280,
+      "maxHashtags": 3,
+      "maxMentions": 5,
+      "mediaRequired": false,
+      "linkAllowed": true
+    },
+    "instagram": {
+      "maxLength": 2200,
+      "maxHashtags": 30,
+      "maxMentions": 20,
+      "mediaRequired": true,
+      "linkAllowed": false
+    },
+    "linkedin": {
+      "maxLength": 3000,
+      "maxHashtags": 5,
+      "maxMentions": 10,
+      "mediaRequired": false,
+      "linkAllowed": true
+    },
+    "facebook": {
+      "maxLength": 63206,
+      "maxHashtags": 10,
+      "maxMentions": 50,
+      "mediaRequired": false,
+      "linkAllowed": true
+    },
+    "threads": {
+      "maxLength": 500,
+      "maxHashtags": 5,
+      "maxMentions": 5,
+      "mediaRequired": false,
+      "linkAllowed": true
+    },
+    "tiktok": {
+      "maxLength": 150,
+      "maxHashtags": 5,
+      "mediaRequired": true,
+      "linkAllowed": false
+    },
+    "youtube": {
+      "maxLength": 5000,
+      "maxHashtags": 15,
+      "mediaRequired": true,
+      "linkAllowed": true
+    },
+    "pinterest": {
+      "maxLength": 500,
+      "maxHashtags": 20,
+      "mediaRequired": true,
+      "linkAllowed": true
+    },
+    "reddit": {
+      "maxLength": 40000,
+      "maxHashtags": 0,
+      "mediaRequired": false,
+      "linkAllowed": true
+    },
+    "bluesky": {
+      "maxLength": 300,
+      "maxHashtags": 5,
+      "mediaRequired": false,
+      "linkAllowed": true
+    }
+  }
+}

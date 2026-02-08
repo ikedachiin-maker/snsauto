@@ -1,0 +1,68 @@
+{
+  "id": "sns_full_analysis_v1",
+  "name": "全SNS分析ワークフロー",
+  "version": "1.0.0",
+  "description": "10種のSNSプラットフォームからデータを収集し、正規化・分析・レポート生成までを実行するワークフロー。TSIS Layer 1-2を統合実行する。",
+  "phases": [
+    {
+      "id": "phase_0_config",
+      "name": "分析設定",
+      "description": "分析対象プラットフォーム、期間、キーワード、競合アカウントを設定します。output/sns/config.jsonに設定を書き込んでください。",
+      "requiredArtifacts": ["output/sns/config.json"],
+      "allowedSkills": ["sns-intelligence-system"],
+      "nextPhase": "phase_1_collect"
+    },
+    {
+      "id": "phase_1_collect",
+      "name": "データ収集",
+      "description": "Apify MCP / SociaVault MCPを使用して各プラットフォームからデータを収集します。",
+      "parallelNext": {
+        "phases": [
+          "phase_1a_collect_p1",
+          "phase_1b_collect_trend"
+        ],
+        "waitStrategy": "all"
+      }
+    },
+    {
+      "id": "phase_1a_collect_p1",
+      "name": "SNSデータ収集（P1プラットフォーム）",
+      "description": "Twitter/X, Instagram, YouTube, TikTokからデータを収集します。Apify MCPのActor（tweet-scraper, instagram-scraper, youtube-scraper, tiktok-scraper）を使用。",
+      "requiredArtifacts": ["output/sns/raw_data.json"],
+      "allowedSkills": ["social-media-analyzer", "sns-intelligence-system"],
+      "nextPhase": "phase_2_normalize"
+    },
+    {
+      "id": "phase_1b_collect_trend",
+      "name": "トレンドデータ収集",
+      "description": "What's Trending MCPを使用して35+ソースからトレンドトピックを収集します。",
+      "requiredArtifacts": ["output/sns/trends.json"],
+      "allowedSkills": ["sns-intelligence-system"],
+      "nextPhase": "phase_2_normalize"
+    },
+    {
+      "id": "phase_2_normalize",
+      "name": "データ正規化",
+      "description": "収集した生データをUnifiedPost型に正規化します。重複検出・排除、タイムスタンプJST統一、エンゲージメント率統一計算を実行。",
+      "requiredArtifacts": ["output/sns/unified_posts.json"],
+      "allowedSkills": ["sns-intelligence-system"],
+      "nextPhase": "phase_3_analyze"
+    },
+    {
+      "id": "phase_3_analyze",
+      "name": "分析実行",
+      "description": "social-media-analyzerスキルを使用してSNSパフォーマンス分析を実行します。エンゲージメント分析、投稿ランキング、最適投稿時間帯分析、競合ベンチマーク。",
+      "requiredArtifacts": ["output/sns/analysis_result.json"],
+      "allowedSkills": ["social-media-analyzer", "seo-geo-optimizer"],
+      "nextPhase": "phase_4_report"
+    },
+    {
+      "id": "phase_4_report",
+      "name": "レポート生成",
+      "description": "分析結果をMarkdown形式のレポートにまとめます。docs/reports/sns-analysis-YYYYMMDD.mdに出力。",
+      "requiredArtifacts": ["docs/reports/sns-analysis-report.md"],
+      "allowedSkills": ["sns-intelligence-system", "social-media-analyzer"],
+      "nextPhase": null
+    }
+  ]
+}

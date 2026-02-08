@@ -1,0 +1,33 @@
+{
+  "$schema": "./collection-config.schema.json",
+  "version": "1.0.0",
+  "description": "TSIS データ収集パラメータ設定",
+  "keywords": [],
+  "accounts": {},
+  "competitors": [],
+  "schedule": {
+    "defaultCron": "0 6 * * *",
+    "timezone": "Asia/Tokyo"
+  },
+  "collection": {
+    "maxRetries": 3,
+    "retryDelayMs": 5000,
+    "rateLimitDelayMs": 1000,
+    "timeoutMs": 300000,
+    "priorityOrder": ["P1", "P2", "P3"]
+  },
+  "normalization": {
+    "defaultLanguage": "ja",
+    "timestampTimezone": "Asia/Tokyo"
+  },
+  "deduplication": {
+    "strategy": "platform_post_id",
+    "lookbackDays": 7
+  },
+  "output": {
+    "rawDataDir": "output/sns/raw",
+    "normalizedDir": "output/sns/normalized",
+    "trendsDir": "output/sns/trends",
+    "reportsDir": "docs/reports"
+  }
+}

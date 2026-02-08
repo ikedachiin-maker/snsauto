@@ -1,0 +1,7 @@
+{
+  "$schema": "./competitors.schema.json",
+  "version": "1.0.0",
+  "description": "競合アカウント設定（TSIS Phase 3）",
+  "maxPerPlatform": 20,
+  "competitors": []
+}

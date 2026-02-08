@@ -1,0 +1,31 @@
+{
+  "$schema": "./content-config.schema.json",
+  "version": "1.0.0",
+  "description": "コンテンツ生成パイプライン設定（TSIS Phase 4）",
+  "brief": {
+    "minOutlines": 5,
+    "maxOutlines": 12,
+    "minReferences": 3,
+    "snsInsightMin": 2
+  },
+  "article": {
+    "wordCountTarget": 5000,
+    "wordCountMin": 3000,
+    "wordCountMax": 8000,
+    "hookStrategies": ["problem-statement", "statistic", "story", "question"],
+    "ctaTypes": ["newsletter", "product", "consultation", "download"]
+  },
+  "seo": {
+    "scoreThreshold": 80,
+    "keywordDensity": { "min": 0.5, "max": 2.5 },
+    "requiredHeadings": ["H1", "H2", "H2", "H2"],
+    "minInternalLinks": 2,
+    "minExternalLinks": 3,
+    "maxMetaTitleLength": 60,
+    "maxMetaDescriptionLength": 160
+  },
+  "publish": {
+    "defaultStatus": "draft",
+    "autoSchedule": false
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "sns_to_article_v1",
+  "name": "SNSトレンド→記事作成ワークフロー",
+  "version": "1.0.0",
+  "description": "SNSトレンド分析結果を基に記事テーマを選定し、SEO最適化された記事を自動生成してCMSに公開するワークフロー。TSIS Layer 1-4を統合実行する。",
+  "phases": [
+    {
+      "id": "phase_0_trend",
+      "name": "トレンド分析",
+      "description": "What's Trending MCP / social-media-analyzerの出力からトレンドトピックを抽出し、記事テーマ候補をリストアップします。",
+      "requiredArtifacts": ["output/article/trend_topics.json"],
+      "allowedSkills": ["sns-intelligence-system", "social-media-analyzer"],
+      "nextPhase": "phase_1_brief"
+    },
+    {
+      "id": "phase_1_brief",
+      "name": "記事ブリーフ生成",
+      "description": "content-brief-generatorスキルを使用して、選定テーマの記事ブリーフ（構成案、ターゲットKW、参考URL、SNSデータ引用ポイント）を生成します。",
+      "requiredArtifacts": ["output/article/brief.json"],
+      "allowedSkills": ["content-brief-generator", "seo-geo-optimizer"],
+      "nextPhase": "phase_2_write"
+    },
+    {
+      "id": "phase_2_write",
+      "name": "記事執筆",
+      "description": "content-research-writerスキルを使用して、ブリーフに基づきリサーチ付き記事を執筆します。出典引用、フック最適化、指定文字数での生成。",
+      "requiredArtifacts": ["output/article/draft.md"],
+      "allowedSkills": ["content-research-writer"],
+      "nextPhase": "phase_3_seo"
+    },
+    {
+      "id": "phase_3_seo",
+      "name": "SEO最適化",
+      "description": "seo-geo-optimizerスキルを使用して記事のSEO最適化を実行します。メタタグ生成、Schema生成、SEOスコアチェック、GEO最適化。SEOスコア80点以上が合格基準。",
+      "requiredArtifacts": ["output/article/optimized.md"],
+      "allowedSkills": ["seo-geo-optimizer"],
+      "validations": [
+        {
+          "type": "command",
+          "command": "grep -c 'seo_score' output/article/seo_check.json",
+          "expectedOutput": "1",
+          "errorMessage": "SEOチェック結果が見つかりません"
+        }
+      ],
+      "nextPhase": "phase_4_publish"
+    },
+    {
+      "id": "phase_4_publish",
+      "name": "CMS公開",
+      "description": "ghost-cms MCPを使用して最適化済み記事をGhost CMSに下書き保存します。メタ情報（タイトル/ディスクリプション/OGP）を自動設定。",
+      "requiredArtifacts": ["output/article/publish_result.json"],
+      "allowedSkills": ["sns-intelligence-system", "content-research-writer"],
+      "nextPhase": null
+    }
+  ]
+}
