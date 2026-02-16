@@ -1,266 +1,232 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP プレビュー - TAISUN Agent</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAISUN Portal - Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+  :root {
+    --navy: #2c2c54;
+    --gold: #c5a55a;
+    --light-bg: #f0f0f0;
+    --red: #e74c3c;
+    --green: #27ae60;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--light-bg); color: #1a1a1a; min-height: 100vh; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+  .top-bar {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar h1 { font-size: 1.4em; font-weight: 900; }
+  .top-bar nav a { color: var(--gold); text-decoration: none; margin-left: 24px; font-weight: 700; font-size: 0.9em; opacity: 0.8; transition: opacity 0.2s; }
+  .top-bar nav a:hover { opacity: 1; }
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
-            width: 100%;
-            padding: 50px;
-        }
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a1a2e 100%);
+    color: var(--white);
+    padding: 60px 32px;
+    text-align: center;
+  }
+  .hero h2 { font-size: 2em; font-weight: 900; margin-bottom: 12px; }
+  .hero p { font-size: 1em; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
 
-        h1 {
-            font-size: 42px;
-            color: #2d3748;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+  .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; position: relative; z-index: 1; }
 
-        .subtitle {
-            text-align: center;
-            color: #718096;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
+  .section-title {
+    font-size: 1.3em;
+    font-weight: 900;
+    color: var(--navy);
+    margin: 40px 0 20px;
+    padding-left: 16px;
+    border-left: 5px solid var(--gold);
+  }
 
-        .lp-grid {
-            display: grid;
-            gap: 20px;
-            margin-top: 30px;
-        }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
 
-        .lp-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            padding: 30px;
-            color: white;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
 
-        .lp-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
+  .card-header {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 20px;
+    font-weight: 900;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-header .icon { font-size: 1.4em; }
 
-        .lp-card:hover::before {
-            left: 100%;
-        }
+  .card-body { padding: 20px; }
+  .card-body p { font-size: 0.85em; color: #555; line-height: 1.7; margin-bottom: 12px; }
 
-        .lp-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: 700;
+  }
+  .badge-gold { background: #fff8e1; color: #b8860b; }
+  .badge-green { background: #e8f5e9; color: var(--green); }
+  .badge-red { background: #fce4ec; color: var(--red); }
+  .badge-navy { background: #e8eaf6; color: var(--navy); }
 
-        .lp-card h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    background: var(--light-bg);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .stat-item .num { font-size: 1.4em; font-weight: 900; color: var(--navy); }
+  .stat-item .label { font-size: 0.65em; color: #888; }
 
-        .lp-card .icon {
-            font-size: 32px;
-        }
-
-        .lp-card p {
-            font-size: 16px;
-            opacity: 0.9;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .lp-card .tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-right: 8px;
-            margin-top: 10px;
-        }
-
-        .info-box {
-            background: #f7fafc;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .info-box h3 {
-            color: #2d3748;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .info-box p {
-            color: #4a5568;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-
-        .info-box code {
-            background: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #667eea;
-        }
-
-        .server-info {
-            background: #48bb78;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .server-info code {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-
-            .lp-card h2 {
-                font-size: 22px;
-            }
-        }
-    </style>
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #888;
+    font-size: 0.75em;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎮 LP プレビュー</h1>
-        <p class="subtitle">作成されたランディングページを確認できます</p>
 
-        <div class="server-info">
-            ✅ ローカルサーバー起動中: <code>http://localhost:8080</code>
+<div class="top-bar">
+  <h1>TAISUN Portal</h1>
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a href="snsauto2/index.html">SNS Auto 2</a>
+    <a href="commands/index.html">Commands</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <h2>TAISUN Portal Dashboard</h2>
+  <p>MNPスライド、LP、コマンドリファレンスをどこからでもアクセス</p>
+</div>
+
+<div class="container">
+
+  <div class="section-title">SNS Auto 2 - Slides</div>
+  <div class="card-grid">
+    <a class="card" href="https://ikedachiin-maker.github.io/snsauto2/" target="_blank">
+      <div class="card-header">
+        <span class="icon">&#x1F4CA;</span>
+        MNP転売プレゼンテーション
+      </div>
+      <div class="card-body">
+        <p>MNP転売 x 3つの副業の概要を説明するReveal.jsスライドデッキ。29枚構成。</p>
+        <span class="badge badge-gold">Reveal.js</span>
+        <span class="badge badge-green">29 slides</span>
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="num">29</div>
+            <div class="label">スライド数</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">1280x720</div>
+            <div class="label">解像度</div>
+          </div>
         </div>
+      </div>
+    </a>
 
-        <div class="info-box">
-            <h3>📋 アクセス方法</h3>
-            <p>以下のリンクをクリックすると、ブラウザで各LPが開きます。</p>
-            <p><strong>Claude Agent SDK</strong>からアクセスする場合も、これらのURLを使用してください。</p>
+    <a class="card" href="https://ikedachiin-maker.github.io/snsauto2/vsl-slides.html" target="_blank">
+      <div class="card-header">
+        <span class="icon">&#x1F3AC;</span>
+        VSL スライド
+      </div>
+      <div class="card-body">
+        <p>MNP転売 x 3つの副業 VSLスライド。ビデオセールスレター向けのスライドデッキ。</p>
+        <span class="badge badge-gold">Reveal.js</span>
+        <span class="badge badge-red">VSL</span>
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="num">29</div>
+            <div class="label">スライド数</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">Navy/Gold</div>
+            <div class="label">テーマ</div>
+          </div>
         </div>
+      </div>
+    </a>
+  </div>
 
-        <div class="lp-grid">
-            <!-- メインLP: ゲーム観戦×AI副業 -->
-            <a href="hero_index.html" class="lp-card" target="_blank">
-                <h2>
-                    <span class="icon">🎮</span>
-                    ゲーム観戦×AI副業 ヒーローセクション
-                </h2>
-                <p>
-                    eスポーツ観戦が趣味の家族持ちサラリーマン向け。<br>
-                    月20万円の副収入、時間も家族も諦めない生活を訴求。
-                </p>
-                <div>
-                    <span class="tag">レスポンシブ対応</span>
-                    <span class="tag">グラデーション背景</span>
-                    <span class="tag">共感型コピー</span>
-                </div>
-            </a>
+  <div class="section-title">Existing Pages</div>
+  <div class="card-grid">
+    <a class="card" href="hero_index.html">
+      <div class="card-header">
+        <span class="icon">&#x1F3AE;</span>
+        Hero Index
+      </div>
+      <div class="card-body">
+        <p>ヒーローセクションのデザインインデックス。LP用のヒーロー要素一覧。</p>
+        <span class="badge badge-navy">LP Hero</span>
+      </div>
+    </a>
 
-            <!-- ドキュメント -->
-            <a href="esports_ai_hero_section.md" class="lp-card" target="_blank" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                <h2>
-                    <span class="icon">📄</span>
-                    完全ドキュメント
-                </h2>
-                <p>
-                    NanoBanana画像生成プロンプト、デザイン仕様書、実装手順の完全版。<br>
-                    A/Bテスト案、チェックリスト付き。
-                </p>
-                <div>
-                    <span class="tag">22KB</span>
-                    <span class="tag">Markdown</span>
-                </div>
-            </a>
+    <a class="card" href="lp_graphic_design_fixed.html">
+      <div class="card-header">
+        <span class="icon">&#x1F3A8;</span>
+        LP Graphic Design
+      </div>
+      <div class="card-body">
+        <p>グラフィックデザイン版LP。修正済みバージョン。</p>
+        <span class="badge badge-navy">LP Design</span>
+      </div>
+    </a>
+  </div>
 
-            <!-- クイックスタート -->
-            <a href="HERO_QUICKSTART.md" class="lp-card" target="_blank" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                <h2>
-                    <span class="icon">⚡</span>
-                    5分実装ガイド
-                </h2>
-                <p>
-                    即実行可能な手順書、トラブルシューティング、カスタマイズ例。<br>
-                    初心者でも5分でヒーローセクションが完成。
-                </p>
-                <div>
-                    <span class="tag">ステップバイステップ</span>
-                    <span class="tag">トラブルシューティング</span>
-                </div>
-            </a>
-        </div>
+  <div class="section-title">Tools & References</div>
+  <div class="card-grid">
+    <a class="card" href="commands/index.html">
+      <div class="card-header">
+        <span class="icon">&#x2318;</span>
+        Slide Editor Command
+      </div>
+      <div class="card-body">
+        <p>/slide-editor コマンドリファレンス。MNP専用デザインシステムのビジュアルガイドとコピー可能テンプレート。</p>
+        <span class="badge badge-gold">Command</span>
+        <span class="badge badge-green">Design System</span>
+      </div>
+    </a>
+  </div>
 
-        <div class="info-box" style="margin-top: 30px;">
-            <h3>🔗 直接URL</h3>
-            <p>Claude Agent SDKやブラウザで以下のURLにアクセスできます：</p>
-            <p><code>http://localhost:8080/hero_index.html</code></p>
-            <p><code>http://localhost:8080/esports_ai_hero_section.md</code></p>
-            <p><code>http://localhost:8080/HERO_QUICKSTART.md</code></p>
-        </div>
+</div>
 
-        <div class="info-box" style="border-left-color: #f56565; margin-top: 20px;">
-            <h3>⚠️ 画像について</h3>
-            <p>ヒーロー背景画像はまだ生成されていません。</p>
-            <p>
-                <strong>生成方法：</strong><br>
-                1. Claude Codeで <code>/nanobanana-pro</code> を実行<br>
-                2. esports_ai_hero_section.md のプロンプトをコピペ<br>
-                3. 生成された画像を <code>images/hero-bg-gaming-ai.png</code> として保存<br>
-                4. ブラウザをリロード
-            </p>
-        </div>
+<div class="footer">
+  TAISUN Portal &copy; 2026 | Powered by GitHub Pages
+</div>
 
-        <div style="text-align: center; margin-top: 40px; color: #718096; font-size: 14px;">
-            <p>TAISUN v2 Agent System - LP Generator</p>
-            <p style="margin-top: 5px;">Powered by Claude Sonnet 4.5 & NanoBanana</p>
-        </div>
-    </div>
 </body>
 </html>

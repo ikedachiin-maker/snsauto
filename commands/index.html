@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide Editor Command Reference</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+  :root {
+    --navy: #2c2c54;
+    --gold: #c5a55a;
+    --light-bg: #f0f0f0;
+    --red: #e74c3c;
+    --green: #27ae60;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--light-bg); color: #1a1a1a; min-height: 100vh; }
+
+  .top-bar {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar h1 { font-size: 1.4em; font-weight: 900; }
+  .top-bar nav a { color: var(--gold); text-decoration: none; margin-left: 24px; font-weight: 700; font-size: 0.9em; opacity: 0.8; transition: opacity 0.2s; }
+  .top-bar nav a:hover { opacity: 1; }
+
+  .page-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a1a2e 100%);
+    color: var(--white);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .page-header h2 { font-size: 1.8em; font-weight: 900; margin-bottom: 8px; }
+  .page-header p { color: rgba(255,255,255,0.7); }
+  .page-header code { background: rgba(197,165,90,0.3); color: var(--gold); padding: 4px 12px; border-radius: 4px; font-size: 1.1em; font-weight: 700; }
+
+  .container { max-width: 1000px; margin: 32px auto; padding: 0 20px; }
+
+  .section {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 14px 24px;
+    font-weight: 900;
+    font-size: 1.05em;
+  }
+  .section-body { padding: 24px; }
+
+  h3 { color: var(--navy); font-weight: 900; font-size: 1em; margin: 20px 0 10px; }
+  h3:first-child { margin-top: 0; }
+
+  .usage-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  .usage-table th { background: var(--navy); color: var(--white); padding: 10px 14px; text-align: left; font-size: 0.8em; }
+  .usage-table td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.8em; }
+  .usage-table tr:nth-child(even) td { background: #f8f8f8; }
+  .usage-table code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; color: var(--navy); }
+
+  .code-block {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.8em;
+    line-height: 1.6;
+    margin: 12px 0;
+    position: relative;
+  }
+  .code-block .comment { color: #6c7086; }
+  .code-block .tag { color: #89b4fa; }
+  .code-block .attr { color: #a6e3a1; }
+  .code-block .value { color: #f9e2af; }
+  .code-block .css-prop { color: #cba6f7; }
+  .code-block .css-val { color: #fab387; }
+
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(197,165,90,0.2);
+    color: var(--gold);
+    border: 1px solid rgba(197,165,90,0.4);
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: rgba(197,165,90,0.4); }
+
+  /* Color swatches */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .color-swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .color-swatch .preview {
+    height: 60px;
+  }
+  .color-swatch .info {
+    padding: 8px 10px;
+    background: white;
+    font-size: 0.7em;
+  }
+  .color-swatch .info .name { font-weight: 900; }
+  .color-swatch .info .hex { color: #888; }
+
+  /* Component samples */
+  .sample-box {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 12px 0;
+    background: var(--light-bg);
+  }
+
+  .sample-slide-header {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .sample-fraud-box {
+    background: #fff5f5;
+    border: 2px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 0.8em;
+  }
+
+  .sample-safe-box {
+    background: #f0fff0;
+    border: 2px solid var(--green);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+
+  .sample-diff-highlight {
+    background: #fff3cd;
+    border: 2px solid var(--gold);
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 8px 0;
+    font-weight: 900;
+    font-size: 0.85em;
+  }
+
+  .sample-result-card {
+    background: white;
+    border: 3px solid var(--navy);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: 8px 0;
+  }
+  .sample-result-card .name { font-size: 0.8em; color: #666; }
+  .sample-result-card .amount { font-size: 1.6em; font-weight: 900; color: var(--red); margin: 6px 0; }
+  .sample-result-card .detail { font-size: 0.7em; color: #555; }
+
+  .sample-check-list { list-style: none; padding: 0; }
+  .sample-check-list li { padding: 6px 0; font-weight: 700; font-size: 0.8em; }
+  .sample-check-list li::before { content: "\2705 "; margin-right: 5px; }
+
+  .sample-warn-list { list-style: none; padding: 0; }
+  .sample-warn-list li { padding: 6px 0; font-size: 0.8em; }
+  .sample-warn-list li::before { content: "\26a0\fe0f "; margin-right: 5px; }
+
+  .sample-revenue-box {
+    background: white;
+    border: 2px solid var(--gold);
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 8px 0;
+  }
+  .sample-revenue-box .label { color: #666; font-size: 0.8em; }
+  .sample-revenue-box .amount { font-size: 1.4em; font-weight: 900; color: var(--red); }
+
+  .footer { text-align: center; padding: 24px; color: #888; font-size: 0.75em; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>TAISUN Portal</h1>
+  <nav>
+    <a href="../index.html">Dashboard</a>
+    <a href="../snsauto2/index.html">SNS Auto 2</a>
+    <a href="index.html">Commands</a>
+  </nav>
+</div>
+
+<div class="page-header">
+  <h2>Slide Editor Command</h2>
+  <p><code>/slide-editor</code> MNP専用スライドエディター</p>
+</div>
+
+<div class="container">
+
+  <!-- Usage -->
+  <div class="section">
+    <div class="section-header">Usage</div>
+    <div class="section-body">
+      <table class="usage-table">
+        <thead>
+          <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/slide-editor new [path]</code></td>
+            <td>新しいスライドデッキを作成</td>
+            <td><code>/slide-editor new mnpvsl/new-deck.html</code></td>
+          </tr>
+          <tr>
+            <td><code>/slide-editor edit [path]</code></td>
+            <td>既存スライドを編集</td>
+            <td><code>/slide-editor edit mnpvsl/vsl-slides.html</code></td>
+          </tr>
+          <tr>
+            <td><code>/slide-editor add [path]</code></td>
+            <td>既存デッキにスライド追加</td>
+            <td><code>/slide-editor add mnpvsl/vsl-slides.html</code></td>
+          </tr>
+          <tr>
+            <td><code>/slide-editor</code></td>
+            <td>対話モード起動</td>
+            <td>引数なしで実行</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Color Palette -->
+  <div class="section">
+    <div class="section-header">Color Palette</div>
+    <div class="section-body">
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="preview" style="background:#2c2c54;"></div>
+          <div class="info"><div class="name">Navy</div><div class="hex">#2c2c54</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="preview" style="background:#c5a55a;"></div>
+          <div class="info"><div class="name">Gold</div><div class="hex">#c5a55a</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="preview" style="background:#e74c3c;"></div>
+          <div class="info"><div class="name">Red</div><div class="hex">#e74c3c</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="preview" style="background:#27ae60;"></div>
+          <div class="info"><div class="name">Green</div><div class="hex">#27ae60</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="preview" style="background:#f0f0f0;"></div>
+          <div class="info"><div class="name">Light BG</div><div class="hex">#f0f0f0</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="preview" style="background:#1a1a2e;"></div>
+          <div class="info"><div class="name">Dark BG</div><div class="hex">#1a1a2e</div></div>
+        </div>
+      </div>
+
+      <h3>Color Semantics</h3>
+      <table class="usage-table">
+        <thead>
+          <tr><th>Color</th><th>Usage</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--gold); font-weight:900;">Gold</td><td>Positive emphasis, achievements</td><td>Monthly income, success metrics</td></tr>
+          <tr><td style="color:var(--red); font-weight:900;">Red</td><td>Impact numbers, warnings, urgency</td><td>Revenue amounts, alerts</td></tr>
+          <tr><td style="color:var(--green); font-weight:900;">Green</td><td>Safety, success, solutions</td><td>Safe methods, benefits</td></tr>
+          <tr><td style="color:var(--navy); font-weight:900;">Navy</td><td>Structure, headings, trust</td><td>Headers, step numbers</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Component Samples -->
+  <div class="section">
+    <div class="section-header">Component Visual Reference</div>
+    <div class="section-body">
+
+      <h3>.slide-header</h3>
+      <div class="sample-box">
+        <div class="sample-slide-header">Section Title Here</div>
+      </div>
+
+      <h3>.fraud-box (Warning)</h3>
+      <div class="sample-box">
+        <div class="sample-fraud-box">
+          <p><strong style="color:var(--red);">Warning Message</strong></p>
+          <p>Detail explanation text here</p>
+        </div>
+      </div>
+
+      <h3>.safe-box (Success)</h3>
+      <div class="sample-box">
+        <div class="sample-safe-box">
+          <p><strong style="color:var(--green);">Safe Method</strong></p>
+          <p>Positive detail here</p>
+        </div>
+      </div>
+
+      <h3>.diff-highlight</h3>
+      <div class="sample-box">
+        <div class="sample-diff-highlight">
+          Key differentiator message <span style="color:var(--red); font-size:1.1em;">with emphasis</span>
+        </div>
+      </div>
+
+      <h3>.result-card</h3>
+      <div class="sample-box">
+        <div class="sample-result-card">
+          <div class="name">Person Name (Location)</div>
+          <div class="amount">168万円</div>
+          <div class="detail">Achievement details</div>
+        </div>
+      </div>
+
+      <h3>.revenue-box</h3>
+      <div class="sample-box">
+        <div class="sample-revenue-box">
+          <div class="label">Revenue Label</div>
+          <div class="amount">年間300万円以上</div>
+        </div>
+      </div>
+
+      <h3>.check-list</h3>
+      <div class="sample-box">
+        <ul class="sample-check-list">
+          <li>Benefit item 1</li>
+          <li>Benefit item 2</li>
+          <li>Benefit item 3</li>
+        </ul>
+      </div>
+
+      <h3>.warn-list</h3>
+      <div class="sample-box">
+        <ul class="sample-warn-list">
+          <li>Warning item 1</li>
+          <li>Warning item 2</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <div class="section">
+    <div class="section-header">Copy-Paste Templates</div>
+    <div class="section-body">
+
+      <h3>Title Slide</h3>
+      <div class="code-block" id="tmpl-title">
+        <button class="copy-btn" onclick="copyCode('tmpl-title')">Copy</button>
+<pre>&lt;section class="title-slide"&gt;
+  &lt;h1&gt;Main Title&lt;/h1&gt;
+  &lt;h2&gt;Subtitle&lt;/h2&gt;
+  &lt;p class="small-note"&gt;Note text&lt;/p&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Header + Content</h3>
+      <div class="code-block" id="tmpl-header">
+        <button class="copy-btn" onclick="copyCode('tmpl-header')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Section Title&lt;/div&gt;
+  &lt;h2&gt;Heading&lt;/h2&gt;
+  &lt;p&gt;Body text&lt;/p&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Comparison</h3>
+      <div class="code-block" id="tmpl-compare">
+        <button class="copy-btn" onclick="copyCode('tmpl-compare')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Comparison Title&lt;/div&gt;
+  &lt;div class="compare-box"&gt;
+    &lt;div class="compare-item user-box"&gt;
+      &lt;h3&gt;Before&lt;/h3&gt;
+      &lt;p&gt;Content&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="compare-item agent-box"&gt;
+      &lt;h3&gt;After&lt;/h3&gt;
+      &lt;p&gt;Content&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Data Table</h3>
+      <div class="code-block" id="tmpl-table">
+        <button class="copy-btn" onclick="copyCode('tmpl-table')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Table Title&lt;/div&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Column 1&lt;/th&gt;&lt;th&gt;Column 2&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;td&gt;&lt;strong style="color:var(--gold);"&gt;Value&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Results / Testimonials</h3>
+      <div class="code-block" id="tmpl-results">
+        <button class="copy-btn" onclick="copyCode('tmpl-results')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Results Title&lt;/div&gt;
+  &lt;div style="display:flex; gap:15px;"&gt;
+    &lt;div class="result-card" style="flex:1;"&gt;
+      &lt;div class="name"&gt;Person (Location)&lt;/div&gt;
+      &lt;div class="result-amount"&gt;Amount&lt;/div&gt;
+      &lt;div class="detail"&gt;Details&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Warning / Alert</h3>
+      <div class="code-block" id="tmpl-warning">
+        <button class="copy-btn" onclick="copyCode('tmpl-warning')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Warning Title&lt;/div&gt;
+  &lt;div class="fraud-box"&gt;
+    &lt;p&gt;&lt;strong style="color:var(--red);"&gt;Warning&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;Detail&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="safe-box"&gt;
+    &lt;p&gt;&lt;strong style="color:var(--green);"&gt;Safe&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;Detail&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>Checklist</h3>
+      <div class="code-block" id="tmpl-checklist">
+        <button class="copy-btn" onclick="copyCode('tmpl-checklist')">Copy</button>
+<pre>&lt;section&gt;
+  &lt;div class="slide-header"&gt;Checklist Title&lt;/div&gt;
+  &lt;ul class="check-list"&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+      <h3>CTA (Call to Action)</h3>
+      <div class="code-block" id="tmpl-cta">
+        <button class="copy-btn" onclick="copyCode('tmpl-cta')">Copy</button>
+<pre>&lt;section class="title-slide"&gt;
+  &lt;h1&gt;CTA Title&lt;/h1&gt;
+  &lt;p style="font-size:0.9em; color:#333;"&gt;Description&lt;/p&gt;
+  &lt;div class="closing-msg"&gt;Action message&lt;/div&gt;
+  &lt;p class="small-note"&gt;Disclaimer&lt;/p&gt;
+&lt;/section&gt;</pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CSS Classes Reference -->
+  <div class="section">
+    <div class="section-header">CSS Classes Quick Reference</div>
+    <div class="section-body">
+      <table class="usage-table">
+        <thead>
+          <tr><th>Class</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.slide-header</code></td><td>Navy bg + Gold text header bar</td></tr>
+          <tr><td><code>.title-slide</code></td><td>Center-aligned title slide with navy border</td></tr>
+          <tr><td><code>.highlight-red</code></td><td>Red bold emphasis (1.2em)</td></tr>
+          <tr><td><code>.highlight-gold</code></td><td>Gold bold emphasis</td></tr>
+          <tr><td><code>.highlight-green</code></td><td>Green emphasis</td></tr>
+          <tr><td><code>.highlight-navy</code></td><td>Navy bold emphasis</td></tr>
+          <tr><td><code>.big-center</code></td><td>Large centered text (1.8em)</td></tr>
+          <tr><td><code>.big-center-red</code></td><td>Large centered red text (2em)</td></tr>
+          <tr><td><code>.compare-box</code></td><td>2-column comparison layout</td></tr>
+          <tr><td><code>.compare-item.user-box</code></td><td>Gray-bordered compare item</td></tr>
+          <tr><td><code>.compare-item.agent-box</code></td><td>Gold-bordered compare item</td></tr>
+          <tr><td><code>.check-list</code></td><td>Checkmark list</td></tr>
+          <tr><td><code>.warn-list</code></td><td>Warning list</td></tr>
+          <tr><td><code>.fraud-box</code></td><td>Red warning box</td></tr>
+          <tr><td><code>.safe-box</code></td><td>Green safe box</td></tr>
+          <tr><td><code>.diff-highlight</code></td><td>Gold highlight box</td></tr>
+          <tr><td><code>.result-card</code></td><td>Testimonial/result card</td></tr>
+          <tr><td><code>.revenue-box</code></td><td>Revenue display box</td></tr>
+          <tr><td><code>.profit-calc</code></td><td>Profit calculation box</td></tr>
+          <tr><td><code>.funnel-step</code></td><td>Step in funnel flow</td></tr>
+          <tr><td><code>.phase-box</code></td><td>Phase display card</td></tr>
+          <tr><td><code>.benefits-grid</code></td><td>2-column benefits grid</td></tr>
+          <tr><td><code>.qa-item</code></td><td>Q&A item with .q and .a</td></tr>
+          <tr><td><code>.rule-item</code></td><td>Rule with navy left border</td></tr>
+          <tr><td><code>.closing-options</code></td><td>A/B choice layout</td></tr>
+          <tr><td><code>.bar-chart</code></td><td>Bar chart container</td></tr>
+          <tr><td><code>.incentive-bars</code></td><td>Incentive bar chart</td></tr>
+          <tr><td><code>.small-note</code></td><td>Small gray note text</td></tr>
+          <tr><td><code>.closing-msg</code></td><td>Closing message (navy, bold)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  TAISUN Portal &copy; 2026 | <a href="../index.html" style="color:#888;">Dashboard</a>
+</div>
+
+<script>
+function copyCode(id) {
+  const block = document.getElementById(id);
+  const pre = block.querySelector('pre');
+  const text = pre.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = block.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

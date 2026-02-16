@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS Auto 2 - Slides</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+  :root {
+    --navy: #2c2c54;
+    --gold: #c5a55a;
+    --light-bg: #f0f0f0;
+    --red: #e74c3c;
+    --green: #27ae60;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--light-bg); color: #1a1a1a; min-height: 100vh; }
+
+  .top-bar {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar h1 { font-size: 1.4em; font-weight: 900; }
+  .top-bar nav a { color: var(--gold); text-decoration: none; margin-left: 24px; font-weight: 700; font-size: 0.9em; opacity: 0.8; transition: opacity 0.2s; }
+  .top-bar nav a:hover { opacity: 1; }
+
+  .page-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a1a2e 100%);
+    color: var(--white);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .page-header h2 { font-size: 1.8em; font-weight: 900; margin-bottom: 8px; }
+  .page-header p { color: rgba(255,255,255,0.7); }
+
+  .container { max-width: 1000px; margin: 32px auto; padding: 0 20px; }
+
+  .slide-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .slide-card-header {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 16px 24px;
+    font-weight: 900;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .slide-card-header .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.65em;
+    font-weight: 700;
+    background: rgba(197,165,90,0.2);
+    color: var(--gold);
+  }
+
+  .slide-card-body { padding: 24px; }
+  .slide-card-body p { font-size: 0.85em; color: #555; line-height: 1.7; margin-bottom: 16px; }
+
+  .slide-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .info-item {
+    background: var(--light-bg);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .info-item .num { font-size: 1.2em; font-weight: 900; color: var(--navy); }
+  .info-item .label { font-size: 0.65em; color: #888; margin-top: 2px; }
+
+  .slide-toc {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .slide-toc h4 { font-size: 0.85em; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+  .slide-toc ol { padding-left: 20px; font-size: 0.75em; color: #555; columns: 2; column-gap: 24px; }
+  .slide-toc ol li { padding: 2px 0; }
+
+  .btn-row { display: flex; gap: 12px; }
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85em;
+    text-decoration: none;
+    transition: transform 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--navy); color: var(--gold); }
+  .btn-outline { background: transparent; border: 2px solid var(--navy); color: var(--navy); }
+
+  .footer { text-align: center; padding: 24px; color: #888; font-size: 0.75em; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>TAISUN Portal</h1>
+  <nav>
+    <a href="../index.html">Dashboard</a>
+    <a href="index.html">SNS Auto 2</a>
+    <a href="../commands/index.html">Commands</a>
+  </nav>
+</div>
+
+<div class="page-header">
+  <h2>SNS Auto 2 - Slides</h2>
+  <p>MNP転売プレゼンテーション & VSLスライド一覧</p>
+</div>
+
+<div class="container">
+
+  <!-- MNP Presentation -->
+  <div class="slide-card">
+    <div class="slide-card-header">
+      MNP転売プレゼンテーション
+      <span class="badge">Reveal.js 5.1.0</span>
+    </div>
+    <div class="slide-card-body">
+      <p>MNP転売 x 3つの副業（楽天ポイントせどり・トレーディングカード転売・モバイルATM Lite）の全体像を説明するプレゼンテーション。Navy/Goldデザインシステム準拠。</p>
+
+      <div class="slide-info">
+        <div class="info-item">
+          <div class="num">29</div>
+          <div class="label">スライド枚数</div>
+        </div>
+        <div class="info-item">
+          <div class="num">1280x720</div>
+          <div class="label">解像度</div>
+        </div>
+        <div class="info-item">
+          <div class="num">Navy/Gold</div>
+          <div class="label">テーマ</div>
+        </div>
+        <div class="info-item">
+          <div class="num">Noto Sans JP</div>
+          <div class="label">フォント</div>
+        </div>
+      </div>
+
+      <div class="slide-toc">
+        <h4>スライド構成</h4>
+        <ol>
+          <li>タイトル</li>
+          <li>あなたの現状</li>
+          <li>自己紹介（池田宜史）</li>
+          <li>共感パート</li>
+          <li>なぜ稼げないのか</li>
+          <li>MNP転売とは</li>
+          <li>インセンティブ構造</li>
+          <li>合法性</li>
+          <li>収益シミュレーション</li>
+          <li>成功事例</li>
+          <li>7つのメリット (1-4)</li>
+          <li>7つのメリット (5-7)</li>
+          <li>池田モバイル</li>
+          <li>2つの弱点</li>
+          <li>弱点解消の方法</li>
+          <li>3つの手法の全体像</li>
+          <li>楽天ポイントせどり</li>
+          <li>トレーディングカード転売</li>
+          <li>モバイルATM Lite</li>
+          <li>弱点が武器に変わる</li>
+          <li>月間収益イメージ</li>
+          <li>BAN対策</li>
+          <li>コンサルティング企画</li>
+          <li>3つの副業コース詳細</li>
+          <li>投資対効果</li>
+          <li>理想の未来</li>
+          <li>限定特典</li>
+          <li>最後の決断</li>
+          <li>CTA</li>
+        </ol>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://ikedachiin-maker.github.io/snsauto2/" target="_blank">スライドを開く</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- VSL Slides -->
+  <div class="slide-card">
+    <div class="slide-card-header">
+      VSL スライド
+      <span class="badge">VSL / Reveal.js</span>
+    </div>
+    <div class="slide-card-body">
+      <p>ビデオセールスレター用のスライドデッキ。MNP転売 x 3つの副業をVSL形式で構成。同一のNavy/Goldデザインシステムを使用。</p>
+
+      <div class="slide-info">
+        <div class="info-item">
+          <div class="num">29</div>
+          <div class="label">スライド枚数</div>
+        </div>
+        <div class="info-item">
+          <div class="num">1280x720</div>
+          <div class="label">解像度</div>
+        </div>
+        <div class="info-item">
+          <div class="num">Navy/Gold</div>
+          <div class="label">テーマ</div>
+        </div>
+        <div class="info-item">
+          <div class="num">VSL</div>
+          <div class="label">用途</div>
+        </div>
+      </div>
+
+      <div class="slide-toc">
+        <h4>コンテンツ概要</h4>
+        <ol>
+          <li>タイトル・フック</li>
+          <li>悩み・共感</li>
+          <li>自己紹介・権威</li>
+          <li>問題提起</li>
+          <li>MNP転売の仕組み</li>
+          <li>合法性の証明</li>
+          <li>収益シミュレーション</li>
+          <li>成功事例・証拠</li>
+          <li>メリット一覧</li>
+          <li>弱点と解決策</li>
+          <li>3つの副業手法</li>
+          <li>複合収益モデル</li>
+          <li>オファー提示</li>
+          <li>限定特典</li>
+          <li>CTA・行動喚起</li>
+        </ol>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://ikedachiin-maker.github.io/snsauto2/vsl-slides.html" target="_blank">VSLスライドを開く</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  TAISUN Portal &copy; 2026 | <a href="../index.html" style="color:#888;">Dashboard</a>
+</div>
+
+</body>
+</html>
