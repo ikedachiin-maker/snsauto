@@ -345,6 +345,462 @@ Skill tool → skill: "skill-name", args: "引数"
 
 ---
 
+## システム全体像
+
+| コンポーネント | 数量 | 概要 |
+|-------------|------|------|
+| **エージェント** | 96 | 並列実行可能な専門AIエージェント |
+| **スキル** | 109 | 再利用可能なスキルライブラリ |
+| **コマンド** | 110+ | スラッシュコマンド（`/command-name`） |
+| **MCPサーバー** | 15+ | 外部ツール連携 |
+| **フック** | 13層 | 品質・安全性の自動ガード |
+
+### アーキテクチャ（5層構造）
+
+```
+ユーザーリクエスト → Coordinator層 → Agent Pool → Skill / MCP → Memory System → レスポンス
+```
+
+| 層 | 役割 |
+|----|------|
+| Layer 1: Coordinator | リクエストを適切なエージェントにルーティング |
+| Layer 2: Agent Pool | 96の専門エージェントが並列実行 |
+| Layer 3: Skill Library | 109の再利用可能スキル |
+| Layer 4: MCP Integration | 外部サービス接続（DB, Notion, Web等） |
+| Layer 5: Memory System | エージェント統計・タスク履歴の永続化 |
+
+---
+
+## エージェントシステム（96エージェント）
+
+### コーディネーター（4種）
+
+| エージェント | アルゴリズム |
+|------------|-----------|
+| `ait42-coordinator` | メモリ統計ベースのエージェント選択 |
+| `ait42-coordinator-fast` | ルールベースO(1)選択（軽量） |
+| `omega-aware-coordinator` | 確率最適化（Ω関数理論） |
+| `self-healing-coordinator` | エラーパターン分析・自動復旧 |
+
+### 開発系エージェント
+
+| カテゴリ | エージェント例 |
+|---------|------------|
+| **アーキテクチャ（6）** | system-architect, cloud-architect, api-designer, database-designer, security-architect, ui-ux-designer |
+| **開発（6）** | backend-developer, frontend-developer, api-developer, database-developer, integration-developer, migration-developer |
+| **品質保証（8）** | test-generator, integration-tester, performance-tester, mutation-tester, code-reviewer, qa-validator, security-scanner, security-tester |
+| **運用（8）** | devops-engineer, cicd-manager, backup-manager, config-manager, monitoring-specialist, incident-responder, chaos-engineer, release-manager |
+| **分析（4）** | complexity-analyzer, feedback-analyzer, log-analyzer, metrics-collector |
+| **ドキュメント（3）** | tech-writer, doc-reviewer, knowledge-manager |
+
+### マルチエージェントモード
+
+| モード | 説明 |
+|-------|------|
+| **Competition** | 複数エージェントが同タスクを競争実行、最良結果を採用 |
+| **Debate** | エージェント間で議論し合意形成 |
+| **Ensemble** | 複数エージェントの結果を統合 |
+
+### 開発パイプラインエージェント
+
+**Taiyou パイプライン:** `/taiyou-init` → `/taiyou-auto`
+- coordinator → codegen → review → issue → pr → deployment
+
+**Miyabi パイプライン:** `/miyabi-init` → `/miyabi-auto`
+- coordinator → codegen → review → issue → pr → deployment
+
+### 営業・マーケティングエージェント
+
+| エージェント | 役割 |
+|------------|------|
+| `meta-ads-agent` | Meta広告管理 |
+| `lead-qualifier-agent` | CRMリード判定 |
+| `outreach-agent` | アウトリーチメッセージ |
+| `sdr-coordinator-agent` | SDR全体統括 |
+| `voice-ai-agent` | 音声AI連携 |
+
+### 汎用サブエージェント（永続メモリ付き）
+
+`sub-planner`, `sub-code-reviewer`, `sub-code-searcher`, `sub-implementer`, `sub-test-engineer`, `sub-test-runner-fixer`
+
+---
+
+## コマンドシステム（110+コマンド）
+
+### 開発ライフサイクル
+
+```
+/build-feature    /fix-bug          /refactor-code     /deploy
+/generate-tests   /generate-docs    /write-docs        /review-code
+/review-docs      /validate-quality /verify            /test
+```
+
+### 設計・アーキテクチャ
+
+```
+/design-architecture  /design-api       /design-database
+/design-cloud-architecture              /design-security   /design-ui-ux
+```
+
+### テスト
+
+```
+/test              /test-chaos        /test-integration
+/test-mutation     /test-performance  /test-security
+```
+
+### 運用・インフラ
+
+```
+/manage-infrastructure  /manage-cicd     /manage-releases
+/manage-backups         /manage-config   /manage-incidents
+/setup-monitoring       /optimize-containers
+```
+
+### ワークフロー制御
+
+```
+/workflow-start    /workflow-next     /workflow-status   /workflow-verify
+/agent-run         /learn             /capture-learning  /collect-metrics
+```
+
+### マーケティング統合
+
+```
+/marketing-full    /meta-ads          /meta-ads-full
+/lp-normal         /lp-manga          /note-line-vsl     /kindle-line-vsl
+/video-course      /omnihuman1-video
+```
+
+### MCP操作
+
+```
+/mcp-health  /mcp-files  /mcp-git  /mcp-github
+/mcp-logs    /mcp-network /mcp-system /mcp-tmux
+```
+
+---
+
+## MCPサーバー（15+）
+
+### 常時有効
+
+| サーバー | 機能 |
+|---------|------|
+| **playwright** | ブラウザ自動化（スクレイピング、フォーム操作、スクリーンショット） |
+| **open-websearch** | リアルタイムWeb検索 |
+| **taisun-proxy** | 内部ツール統合ハブ（全MCP呼び出しのルーティング） |
+| **claude-historian** | セッション履歴管理 |
+| **praetorian** | 永続メモリ圧縮（リサーチ結果のクロスセッション保存） |
+
+### オプション（必要時に有効化）
+
+| サーバー | 機能 |
+|---------|------|
+| **youtube** | YouTube動画情報・コメント分析 |
+| **figma** | Figmaデザインデータ読み書き |
+| **qdrant** | ベクトル検索データベース |
+| **meta-ads** | Meta広告データ取得・最適化 |
+| **twitter-client** | X (Twitter) 投稿・分析 |
+| **obsidian** | Obsidian vault読み書き |
+| **n8n-mcp** | n8nワークフロー自動化 |
+| **sequential-thinking** | 段階的推論 |
+| **chroma** | ChromaDB ベクトルDB |
+
+### カスタムMCPサーバー（内蔵）
+
+| サーバー | 機能 |
+|---------|------|
+| `@taisun/ai-sdr-mcp-server` | AI営業自動化（15ツール） |
+| `@taisun/voice-ai-mcp-server` | 音声AI（12ツール: 電話発信, IVR, SMS等） |
+| `line-bot-mcp-server` | LINE Bot連携 |
+
+### MCPプリセット（用途別最適構成）
+
+```
+mcp-presets/
+├── marketing.mcp.json      # マーケティング向け
+├── research.mcp.json       # リサーチ向け
+├── development.mcp.json    # 開発向け
+├── video.mcp.json          # 動画制作向け
+├── image.mcp.json          # 画像生成向け
+└── full-optimized.mcp.json # フル構成（最適化済み）
+```
+
+> 各MCPサーバーは1,000〜26,000トークンを消費。有効化は10個以下を推奨。
+
+---
+
+## フックシステム（13層防御マトリックス）
+
+| 層 | ガード | 機能 |
+|----|-------|------|
+| 0 | `CLAUDE.md` | 絶対遵守ルール（セッション開始時に読み込み） |
+| 1 | SessionStart Injector | `.workflow_state.json` を自動注入 |
+| 2 | Permission Gate | フェーズ外操作をブロック |
+| 3 | Read-before-Write | 未読ファイルの編集をブロック |
+| 4 | Baseline Lock | ベースラインスクリプトの変更をブロック |
+| 5 | Skill Evidence | スキル呼び出し証拠なしの後処理をブロック |
+| 6 | Deviation Approval | 計画逸脱に事前承認を要求 |
+| 7 | Agent Enforcement | 複雑タスクにエージェント使用を強制 |
+| 8 | Copy Safety | U+FFFD等の文字化けマーカーをブロック |
+| 9 | Input Sanitizer | コマンドインジェクション・秘密情報漏洩を検知 |
+| 10 | Skill Auto-Select | タスクタイプ別にスキルを自動選択 |
+| 11 | Definition Lint | ワークフロー定義ファイルを書き込み時にバリデーション |
+| 12 | Context Quality | tmux推奨、console.log警告 |
+
+### その他の主要フック
+
+| フック | 機能 |
+|-------|------|
+| `model-auto-switch.js` | AIモデル自動切替（後述） |
+| `compact-optimizer.js` | 動的な `/compact` タイミング提案 |
+| `task-overflow-guard.js` | Task結果2000文字超で自動compact提案 |
+| `session-handoff-generator.js` | セッション終了時にSESSION_HANDOFF.mdを自動生成 |
+| `auto-memory-saver.js` | 重要な発見をメモリに自動保存 |
+| `agent-trace-capture.js` | エージェント実行トレースを記録 |
+| `cost-warning.js` | 高API消費時に警告 |
+| `anomaly-detector.js` | 行動異常を検知 |
+| `violation-recorder.js` | ルール違反を `mistakes.md` に記録 |
+
+---
+
+## AIモデル自動切替システム
+
+サブエージェント（Task tool）起動時に、タスクの複雑度に応じてモデルを自動選択:
+
+| 複雑度 | モデル | 用途例 |
+|--------|--------|-------|
+| trivial | Haiku | 挨拶・確認・単純応答 |
+| simple | Haiku | 検索・一覧表示・状況確認 |
+| moderate | Sonnet | ファイル修正・関数追加・テスト作成 |
+| complex | Sonnet | 新機能実装・API構築・マルチファイル変更 |
+| expert | Opus | アーキテクチャ設計・セキュリティ監査・大規模リファクタリング |
+
+> 予算超過時はHaikuにフォールバック。ユーザー指定が常に最優先。
+
+---
+
+## ワークフローシステム
+
+### ワークフロー忠実性契約
+
+1. 「同じワークフロー」「XXスキルを使って」= **契約** → 省略・代替・独自判断は禁止
+2. 既存スクリプトを読まずに新規作成しない
+3. 逸脱時は必ず事前確認: 「この行動は指示にありません。実行してよろしいですか？」
+4. 現在のフェーズと矛盾しない
+5. スキル指定時は **必ずSkill tool使用**（手動実装は禁止）
+
+### 違反時の処理
+
+Stop → 謝罪 → `mistakes.md` に記録 → 正しく再実行
+
+### 自己改善ループ
+
+```
+問題解決 → /learn で教訓を記録 → AGENTS.md に蓄積 → 次セッションで自動読み込み
+```
+
+---
+
+## メモリシステム
+
+### Praetorian MCP（構造化永続メモリ）
+
+リサーチ結果・Web分析をJSON形式でクロスセッション保存:
+```json
+{
+  "type": "web_research",
+  "title": "サイト名 - カテゴリ",
+  "source": "URL",
+  "key_insights": [...],
+  "findings": [...],
+  "techniques": {...}
+}
+```
+
+### AGENTS.md（クロスセッション学習）
+
+- プロジェクトルートのMarkdownファイル
+- `/learn` コマンドで教訓を蓄積
+- 毎セッション開始時に自動読み込み
+
+### エージェントレベル統計（51エージェント分）
+
+`.claude/memory/agents/` に各エージェントの実行統計をYAMLで保持。成功率・タスク数・品質スコアを記録。
+
+---
+
+## コンテキスト管理
+
+| 設定 | 推奨値 | 理由 |
+|-----|-------|------|
+| 有効MCPサーバー | 10個以下 | コンテキスト200k→70k縮小を防止 |
+| アクティブツール | 80個以下 | 同上 |
+
+### サブエージェント保護（必須）
+
+- 全Taskプロンプトに `結果は500文字以内で要約して返してください` を含める
+- 3並列以上のエージェント: `run_in_background: true` **必須**
+- Task結果 > 2000文字 → `/compact` 実行
+
+### 最適化実績
+
+コンテキスト: 75K → 30.2Kトークン（**-59.7%**削減）
+
+---
+
+## インストール・セットアップ
+
+### 前提条件
+
+Node.js 18.x+, npm 9.x+, Git 2.x+, Claude Code CLI
+
+### Mac
+
+```bash
+git clone https://github.com/taiyousan15/taisun_agent.git ~/taisun_agent
+cd ~/taisun_agent && ./scripts/install.sh
+
+# プロジェクトにリンク
+ln -sf ~/taisun_agent/.claude .claude
+ln -sf ~/taisun_agent/.mcp.json .mcp.json
+```
+
+### Windows
+
+```bash
+# 方法A（推奨）: 開発者モード ON → bashでシンボリックリンク
+# 方法B: 管理者コマンドプロンプトで mklink /D
+# 方法C: rsync コピー（シンボリックリンク不要）
+```
+
+### アップデート
+
+```bash
+cd ~/taisun_agent && git pull origin main && ./scripts/update.sh
+```
+
+### 診断コマンド
+
+```bash
+npm run taisun:diagnose    # スコア98+で全機能動作
+```
+
+| 項目 | 配点 |
+|------|------|
+| 13層防御フック | 30点 |
+| MCP接続 | 25点 |
+| スキル定義（109） | 20点 |
+| エージェント定義（96） | 15点 |
+| ビルド状態 | 10点 |
+
+### コスト削減: LiteLLM / OpenRouter
+
+Claude APIコストを1/3〜1/10に削減:
+```bash
+OPENROUTER_API_KEY="sk-or-..." GROQ_API_KEY="gsk_..." \
+  bash ~/taisun_agent/scripts/setup-litellm.sh
+claude-lite    # 安価モデル経由で起動
+```
+
+---
+
+## npm scripts 一覧
+
+### 基本操作
+
+```bash
+npm run dev              # 開発サーバー起動
+npm test                 # テスト実行
+npm run lint             # ESLint
+npm run typecheck        # TypeScriptチェック
+npm run build:all        # 全ビルド
+```
+
+### メモリ・メトリクス
+
+```bash
+npm run memory:report    # メモリレポート
+npm run memory:backup    # メモリバックアップ
+npm run metrics:report   # メトリクスレポート（7日/30日）
+npm run perf:report      # パフォーマンスレポート
+npm run perf:benchmark   # ベンチマーク実行
+```
+
+### ワークフロー
+
+```bash
+npm run workflow:start   # ワークフロー開始
+npm run workflow:status  # ステータス確認
+npm run workflow:next    # 次フェーズへ
+npm run workflow:verify  # 完了検証
+```
+
+### パフォーマンスモード
+
+```bash
+npm run perf:fast        # 高速モード（品質↓速度↑）
+npm run perf:normal      # 通常モード
+npm run perf:strict      # 厳密モード（品質↑速度↓）
+```
+
+### セキュリティ
+
+```bash
+npm run security:scan         # Trivy脆弱性スキャン
+npm run security:secrets-scan # Gitleaks秘密情報スキャン
+```
+
+---
+
+## スキル自動マッピング
+
+ユーザー入力に含まれるキーワードでスキルを自動推奨:
+
+| キーワード | 推奨スキル |
+|-----------|----------|
+| YouTube + チュートリアル + 動画 | video-course |
+| セールスレター | taiyo-style-sales-letter |
+| ステップメール | taiyo-style-step-mail |
+| VSL台本 | taiyo-style-vsl |
+| Instagram + ショート | shorts-create |
+| 電話 / コール / 音声AI | voice-ai |
+| SDR / 営業パイプライン | ai-sdr |
+| リードスコアリング | lead-scoring |
+| URL分析 / サイト分析 | url-deep-analysis |
+
+---
+
+## URL学習パイプライン
+
+URL分析（`/url-all` `/url-deep-analysis`）実行後の自動5フェーズ:
+
+```
+1. コンテンツ理解 → 2. Praetorianメモリ保存 → 3. ノウハウ判定
+→ 4. スキル化提案（ノウハウの場合） → 5. ユーザー承認後にスキル生成
+```
+
+---
+
+## システム統計
+
+| 指標 | 値 |
+|------|-----|
+| エージェント | 96 |
+| スキル | 109 |
+| コマンド | 110+ |
+| MCPサーバー | 15+ |
+| フック層 | 13 |
+| テスト | 775 passing |
+| コンテキスト最適化 | 75K → 30K tokens (-60%) |
+| 診断スコア | 100/100 |
+| リサーチソース数 | 133 |
+| 最大並列エージェント | 5（設定変更可） |
+| メモリ保持期間 | 90日 / 最大1000タスク |
+
+---
+
 [![CI](https://github.com/taiyousan15/taisun_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/taiyousan15/taisun_agent/actions/workflows/ci.yml)
 [![Security Scan](https://github.com/taiyousan15/taisun_agent/actions/workflows/security.yml/badge.svg)](https://github.com/taiyousan15/taisun_agent/actions/workflows/security.yml)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green)](https://nodejs.org/)
